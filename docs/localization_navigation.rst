@@ -63,7 +63,7 @@ approximated as circular for the purposes of global path planning) and operates 
 representations a number of sensor processing plugins. It is used in the planner and controller servers for creating space to check for collisions or 
 higher cost areas to negotiate around.
 
-.. figure:: res/localization_navigation.gif
+.. figure:: fig/localization_navigation.gif
     :width: 1000
     :align: center
 
@@ -88,7 +88,7 @@ SLAM and Navigation
 It is also possible to do mapping with the ``slam_toolbox`` and navigation at the same time. This will not require a static map, given that the map will
 be created while navigating. When running SLAM, the localization nodes from Nav2 should not be running simultaneously.
 
-.. figure:: res/slam_navigation.gif
+.. figure:: fig/slam_navigation.gif
     :width: 1000
     :align: center
 
