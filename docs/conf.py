@@ -2,9 +2,9 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../jl'))
 
-project = 'jl'
-copyright = '2023, redandgreen.co.uk'
-author = 'Mr Moo'
+project = 'UiAbot Documentation'
+copyright = '2023, University of Agder'
+author = 'Daniel Hagen'
 release = '0.0.1'
 
 
@@ -19,6 +19,12 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 # Added from GitLab Sphinx
+html_theme_options = {
+    'collapse_navigation': False,
+    'sticky_navigation': True,
+    'navigation_depth': -1,
+}
+
 html_logo = 'src/fig/uiabot_logo.png'
 # Adding custom stylesheet
 def setup(app):
