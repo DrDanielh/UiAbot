@@ -4,7 +4,7 @@ sys.path.insert(0, os.path.abspath('../jl'))
 
 project = 'UiAbot Documentation'
 copyright = '2023, University of Agder'
-author = 'Daniel Hagen'
+author = 'Daniel Hagen, Martin Mæland, Tarjei Skotterud, and Martin Dahlseng Hermansen'
 release = '0.0.1'
 
 
