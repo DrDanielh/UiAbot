@@ -9,4 +9,24 @@ Each group is given a differential drive robot, called UiAbot, inspired by `turt
 
 .. figure:: fig/uiabot_photo.png
     :width: 1000
+
+IMU
+---------------
+
+Visualizing the IMU orientation was done by the creation of an additional node in the :ref:`uiabot_pkg` package, named :ref:`uiabot_pkg imu_tf_viz`. This node broadcasts
+the TF of an ``imu`` frame relative to a fixed ``world`` frame, which then can be seen in Rviz2.
+
+.. figure:: fig/imu_tf.gif
+  :align: center
+  :width: 500
+
+  Figure: IMU orientation visualization in Rviz2.
+
+Test
+---------------
+
+.. figure:: fig/uiabot_photo.png
+   :width: 500
+   :align: center
+
     
