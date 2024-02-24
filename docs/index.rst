@@ -1,28 +1,30 @@
-.. jl documentation master file, created by
-   sphinx-quickstart on Sat Mar 18 21:50:38 2023.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Welcome the UiAbot documentation!
+==================================
 
-jl documentation
-=================
+.. figure:: src/fig/uiabot_photo.png
+   :width: 500
+   :align: center
+ 
+.. toctree::
+   :maxdepth: 2
+   :caption: Introduction:
 
-| If you want to see how this was created, check out this article:
-| https://redandgreen.co.uk/sphinx-to-github-pages-via-github-actions/
+   src/project_description
+   src/installation
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Implementation:
 
-   modules
+   src/motion_control
+   src/perception
+   src/localization_mapping
+   src/localization_navigation
+   src/conclusion
 
-Indices and tables
-==================
+.. toctree::
+   :maxdepth: 2
+   :caption: Software and Guides:
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-.. note::
-   This is a skeleton of a project, feel free to clone.
-   Replace 'jl' with your project name when calling Sphinx initially
-
+   src/guides
+   src/software_documentation
