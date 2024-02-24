@@ -39,9 +39,9 @@ Nodes
 .. toctree::
    :hidden:
 
-   uiabot/control
-   uiabot/mechanical_odometry
-   uiabot/imu_tf_viz
+   control
+   mechanical_odometry
+   imu_tf_viz
 
 * :doc:`uiabot/control`
 * :doc:`uiabot/mechanical_odometry`
