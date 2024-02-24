@@ -1,7 +1,7 @@
 Welcome the UiAbot documentation!
 ==================================
 
-.. figure:: fig/uiabot_photo.png
+.. figure:: src/fig/uiabot_photo.png
    :width: 500
    :align: center
  
@@ -9,22 +9,22 @@ Welcome the UiAbot documentation!
    :maxdepth: 2
    :caption: Introduction:
 
-   project_description
-   installation
+   src/project_description
+   src/installation
 
 .. toctree::
    :maxdepth: 2
    :caption: Implementation:
 
-   motion_control
-   perception
-   localization_mapping
-   localization_navigation
-   conclusion
+   src/motion_control
+   src/perception
+   src/localization_mapping
+   src/localization_navigation
+   src/conclusion
 
 .. toctree::
    :maxdepth: 2
    :caption: Software and Guides:
 
-   guides
-   software_documentation
+   src/guides
+   src/software_documentation

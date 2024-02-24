@@ -43,9 +43,9 @@ Nodes
    uiabot/mechanical_odometry
    uiabot/imu_tf_viz
 
-* :doc:`control`
-* :doc:`mechanical_odometry`
-* :doc:`imu_tf_viz`
+* :doc:`uiabot/control`
+* :doc:`uiabot/mechanical_odometry`
+* :doc:`uiabot/imu_tf_viz`
 
 Package structure
 -----------------

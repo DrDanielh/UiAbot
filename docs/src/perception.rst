@@ -53,7 +53,7 @@ is broadcasted for later usage.
 
 The ``/robot_description`` topic can then be subscribed to in Rviz2, which then will visualize the robot and all its frames dynamically.
 
-.. figure:: fig/wheel_tf.gif
+.. figure:: res/wheel_tf.gif
   :align: center
   :width: 400
 
@@ -95,7 +95,7 @@ As seen in the diagram on top, the used topic is the ``/bno055/data``, which con
 Visualizing the IMU orientation was done by the creation of an additional node in the :ref:`uiabot_pkg` package, named :ref:`uiabot_pkg imu_tf_viz`. This node broadcasts
 the TF of an ``imu`` frame relative to a fixed ``world`` frame, which then can be seen in Rviz2.
 
-.. figure:: fig/imu_tf.gif
+.. figure:: res/imu_tf.gif
   :align: center
   :width: 500
 
@@ -131,7 +131,7 @@ broadcasted frame match with the figure above.
 
 The laser scan visualization in Rviz2 is done by adding a LaserScan subscriber to the ``/scan`` topic.
 
-.. figure:: fig/laser_scan.gif
+.. figure:: res/laser_scan.gif
   :align: center
   :width: 500
 

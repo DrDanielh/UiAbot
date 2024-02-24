@@ -43,6 +43,6 @@ Nodes
 .. toctree::
    :hidden:
 
-   odrive_ros2_2
+   odrive_ros2/odrive_ros2
 
-* :doc:`odrive_ros2_2`
+* :doc:`odrive_ros2/odrive_ros2`

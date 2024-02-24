@@ -41,6 +41,6 @@ Nodes
 .. toctree::
    :hidden:
 
-   bno055_i2c_ros2_2
+   bno055_i2c_ros2/bno055_i2c_ros2
 
-* :doc:`bno055_i2c_ros2_2`
+* :doc:`bno055_i2c_ros2/bno055_i2c_ros2`
