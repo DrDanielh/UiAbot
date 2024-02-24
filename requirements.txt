@@ -1,4 +1,6 @@
 sphinx
 sphinx_rtd_theme
+sphinx-autobuild
+sphinx-rtd-size
 ghp-import
 pytest
