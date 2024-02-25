@@ -32,7 +32,7 @@ The Nav2 stack has tools to:
 - Plugins to enable your own custom algorithms and behaviors (Nav2 Core)
 
 Localization in predefined map
---------------
+------------------------------
 In contradiction to :ref:`SLAM <localization_mapping slam>`, where the map is created simultaneously, localization in Nav2 relies on a predefined
 map getting parsed in upon launch. The predefined map of the environment consists of a *.pgm* containing a gray-scale of the map itself 
 and a *.yaml* file with map parameters. These files are created when you save a map during a mapping routine using e.g. SLAM.
