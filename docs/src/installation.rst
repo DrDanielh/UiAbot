@@ -166,39 +166,39 @@ Install developed software
 
 2. Download the following packages.
 
-   * ``bno055_i2c_ros2`` (`src <https://gitlab.com/dunder-mifflin-group/mas514/bno055_i2c_ros2>`__)
+   * ``bno055_i2c_ros2`` (`src <https://github.com/DrDanielh/bno055-i2c-ros2>`__)
 
        .. code:: bash
 
-           git clone https://gitlab.com/dunder-mifflin-group/mas514/bno055_i2c_ros2.git -b v1.0.0
+           git clone https://github.com/DrDanielh/bno055-i2c-ros2.git -b v1.0.0
 
-   * ``odrive_ros2`` (`src <https://gitlab.com/dunder-mifflin-group/mas514/odrive_ros2>`__)
-
-       .. code:: bash
-
-           git clone https://gitlab.com/dunder-mifflin-group/mas514/odrive_ros2.git -b v1.0.0
-
-   * ``odrive_interfaces`` (`src <https://gitlab.com/dunder-mifflin-group/mas514/odrive_interfaces>`__)
+   * ``odrive_ros2`` (`src <https://github.com/DrDanielh/odrive-ros2.git>`__)
 
        .. code:: bash
 
-           git clone https://gitlab.com/dunder-mifflin-group/mas514/odrive_interfaces.git -b v1.0.0
+           git clone https://github.com/DrDanielh/odrive-ros2.git -b v1.0.0
 
-   * ``uiabot`` (`src <https://gitlab.com/dunder-mifflin-group/mas514/uiabot>`__)
+   * ``odrive_interfaces`` (`src <https://github.com/DrDanielh/odrive-interfaces>`__)
 
        .. code:: bash
 
-           git clone https://gitlab.com/dunder-mifflin-group/mas514/uiabot.git -b v1.0.0
+           git clone https://github.com/DrDanielh/odrive-interfaces.git -b v1.0.0
+
+   * ``uiabot`` (`src <https://github.com/DrDanielh/uiabot-ros2>`__)
+
+       .. code:: bash
+
+           git clone https://github.com/DrDanielh/uiabot-ros2.git -b v1.0.0
 
 The ``src`` directory should now look like this.
 
     .. code::
 
         src
-        ├── bno055_i2c_ros2
-        ├── odrive_interfaces
-        ├── odrive_ros2          
-        └── uiabot
+        ├── bno055-i2c-ros2
+        ├── odrive-interfaces
+        ├── odrive-ros2          
+        └── uiabot-ros2
 
 Build the workspace
 -------------------
