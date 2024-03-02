@@ -7,6 +7,11 @@ Each group is given a differential drive robot, called UiAbot, inspired by `turt
 
 *Project by*: Martin Mæland, Tarjei Skotterud, and Martin Dahlseng Hermansen
 
+*Supervisor*: Dr. Prof. `Daniel Hagen <https://www.uia.no/en/kk/profile/danielh>`_
+
 .. figure:: fig/uiabot_photo.png
     :width: 1000
-    
+
+Acknowledgment
+--------------
+Inspired by Turtlebot3, Prof. Dr. Daniel Hagen developed the UiAbot from 2021 to 2022 in collaboration with Mechatronics students. Funding for the necessary equipment and development of this mobile robot platform was generously provided by the Mechatronics Section at the University of Agder.    
