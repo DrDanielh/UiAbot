@@ -2,7 +2,7 @@
 
 .. _odrive_ros2_pkg odrive_ros2:
 
-odrive_ros2
+odrive-ros2
 ===========
 
 .. _odrive_ros2_pkg odrive_ros2_diagram:
