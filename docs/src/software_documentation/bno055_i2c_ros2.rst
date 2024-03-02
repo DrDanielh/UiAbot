@@ -2,12 +2,12 @@
 
 .. _bno055_i2c_ros2_pkg:
 
-bno055_i2c_ros2
+bno055-i2c-ros2
 ===============
 
 =======  =====
 Package  bno055_i2c_ros2
-Git      `git <https://gitlab.com/dunder-mifflin-group/mas514/bno055_i2c_ros2>`_
+Git      `git <https://github.com/DrDanielh/bno055-i2c-ros2>`_
 Version  1.0.0 
 ROS 2    Galactic
 Node(s)  bno055_i2c_ros2
@@ -27,7 +27,7 @@ Install:
 
 .. code-block:: bash
 
-    git clone https://gitlab.com/dunder-mifflin-group/mas514/bno055_i2c_ros2.git
+    git clone https://github.com/DrDanielh/bno055-i2c-ros2.git
 
 Build:
 

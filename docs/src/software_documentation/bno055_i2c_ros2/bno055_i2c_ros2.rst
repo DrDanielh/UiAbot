@@ -2,7 +2,7 @@
 
 .. _bno055_i2c_ros2_pkg bno055_i2c_ros2:
 
-bno055_i2c_ros2
+bno055-i2c-ros2
 ===============
 
 .. _bno055_i2c_ros2_pkg bno055_i2c_ros2_diagram:

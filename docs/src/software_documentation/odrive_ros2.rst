@@ -2,12 +2,12 @@
 
 .. _odrive_ros2_pkg:
 
-odrive_ros2
+odrive-ros2
 ===========
 
 =======  =====
 Package  odrive_ros2
-Git      `git <https://gitlab.com/dunder-mifflin-group/mas514/odrive_ros2>`_
+Git      `git <https://github.com/DrDanielh/odrive-interfaces>`_
 Version  1.0.0 
 ROS 2    Galactic, Humble
 Node(s)  odrive_ros2
@@ -29,7 +29,7 @@ Install:
 
 .. code-block:: bash
 
-    git clone https://gitlab.com/mechatronics-uia/mas514/odrive_ros2.git
+    git clone https://github.com/DrDanielh/odrive-ros2.git
 
 Build:
 

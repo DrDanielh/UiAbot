@@ -2,12 +2,12 @@
 
 .. _uiabot_pkg:
 
-uiabot
+uiabot-ros2
 ======
 
 =======  =====
 Package  uiabot
-Git      `git <https://gitlab.com/dunder-mifflin-group/mas514/uiabot>`_
+Git      `git <https://github.com/DrDanielh/uiabot-ros2>`_
 Version  1.0.0 
 ROS 2    Galactic, Humble
 Node(s)  control, mechanical_odometry, imu_tf_viz
@@ -25,7 +25,7 @@ Install:
 
 .. code-block:: bash
 
-    git clone https://gitlab.com/mechatronics-uia/mas514/uiabot.git
+    git clone https://github.com/DrDanielh/uiabot-ros2.git
 
 Build:
 

@@ -2,12 +2,12 @@
 
 .. _odrive_interfaces_pkg:
 
-odrive_interfaces
+odrive-interfaces
 =================
 
 =======  =====
 Package  odrive_interfaces
-Git      `git <https://gitlab.com/dunder-mifflin-group/mas514/odrive_interfaces>`_
+Git      `git <https://github.com/DrDanielh/odrive-interfaces>`_
 Version  1.0.0 
 ROS 2    Galactic, Humble
 Node(s)  odrive_interfaces
@@ -24,7 +24,7 @@ Install:
 
 .. code-block:: bash
 
-    git clone https://gitlab.com/dunder-mifflin-group/mas514/odrive_interfaces.git
+    git clone https://github.com/DrDanielh/odrive-interfaces.git
 
 Build:
 
