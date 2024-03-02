@@ -7,7 +7,7 @@ Each group is given a differential drive robot, called UiAbot, inspired by `turt
 
 *Project by*: Martin Mæland, Tarjei Skotterud, and Martin Dahlseng Hermansen
 
-*Supervisor*: Dr. Prof. `Daniel Hagen <https://www.uia.no/en/kk/profile/danielh>`_
+*Supervisor*: `Daniel Hagen <https://www.uia.no/en/kk/profile/danielh>`_
 
 .. figure:: fig/uiabot_photo.png
     :width: 1000
