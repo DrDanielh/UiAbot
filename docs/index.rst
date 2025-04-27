@@ -24,6 +24,13 @@ Welcome to the UiAbot documentation!
    src/localization_navigation
    src/conclusion
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Software and Guides:
+
+   src/guides
+   src/software_documentation
+
 **Publication:** This work has been published in `IEEE ICIEA 2024 <https://ieeexplore.ieee.org/document/10664856>`_. To cite, please use the following BibTeX:
 
 .. code-block:: bibtex
@@ -35,10 +42,3 @@ Welcome to the UiAbot documentation!
      year={2024},
      pages={1-8},
      doi={10.1109/ICIEA61579.2024.10664856}}
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Software and Guides:
-
-   src/guides
-   src/software_documentation
