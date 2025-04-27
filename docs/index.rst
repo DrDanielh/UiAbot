@@ -5,19 +5,17 @@ Welcome the UiAbot documentation!
    :width: 500
    :align: center
 
-   UiAbot robot platform.
+   UiAbot AMR platform.
 
-**Publication:** This work has been published in IEEE ICIEA 2024. To cite, please use the following BibTeX:
+**Publication:** This work has been published in `IEEE ICIEA 2024 <https://ieeexplore.ieee.org/document/10664856>`_. To cite, please use the following BibTeX:
 
 .. code-block:: bibtex
 
    @INPROCEEDINGS{Hagen2024,
      author={Hagen, D. and Mæland, M. and Skotterud, T. and Dahlseng Hermansen, M. and Haij, H. and Sauar Wad, M.},
-     booktitle={2024 IEEE 19th Conference on Industrial Electronics and Applications (ICIEA)}, 
-     title={UiAbot: A Versatile Autonomous Mobile Robot Platform for Research and Education}, 
+     booktitle={2024 IEEE 19th Conference on Industrial Electronics and Applications (ICIEA)},
+     title={UiAbot: A Versatile Autonomous Mobile Robot Platform for Research and Education},
      year={2024},
-     volume={},
-     number={},
      pages={1-8},
      doi={10.1109/ICIEA61579.2024.10664856}}
 
