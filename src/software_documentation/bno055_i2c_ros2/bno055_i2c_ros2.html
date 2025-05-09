@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bno055-i2c-ros2 &mdash; UiAbot Documentation 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=fee868cc" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="bno055-i2c-ros2" href="../bno055_i2c_ros2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            UiAbot Documentation
+              <img src="../../../_static/uiabot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../project_description.html">Project Description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../project_description.html#design">Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../project_description.html#acknowledgment">Acknowledgment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation and Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#operating-system">Operating System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#setting-up-wi-fi">Setting up Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#connecting-to-uiabot-ssh">Connecting to UiAbot (SSH)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#set-up-bashrc">Set up <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#install-third-party-software">Install third-party software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#create-workspace">Create workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#install-developed-software">Install developed software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#build-the-workspace">Build the workspace</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Implementation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../motion_control.html">Motion Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../motion_control.html#motion-reference">Motion Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../motion_control.html#inverse-kinematics">Inverse Kinematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../motion_control.html#forward-kinematics">Forward Kinematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../motion_control.html#motor-controller">Motor Controller</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../perception.html">Perception</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../perception.html#wheel-encoders">Wheel Encoders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../perception.html#inertial-measurement-unit-imu">Inertial Measurement Unit (IMU)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../perception.html#lidar">LiDAR</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../localization_mapping.html">Localization and Mapping</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../localization_mapping.html#odometry">Odometry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../localization_mapping.html#mechanical-odometry">Mechanical Odometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../localization_mapping.html#sensor-fusion">Sensor Fusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../localization_mapping.html#simultaneous-localization-and-mapping-slam">Simultaneous Localization and Mapping (SLAM)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../localization_navigation.html">Localization and Navigation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../localization_navigation.html#localization-in-predefined-map">Localization in predefined map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../localization_navigation.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../localization_navigation.html#slam-and-navigation">SLAM and Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../localization_navigation.html#nav2-parameters">Nav2 parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../conclusion.html">Project Conclusion</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software and Guides:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../guides.html">Guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/configuring_odrive.html">Configuring ODrive</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/configuring_odrive.html#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/configuring_odrive.html#launch-odrivetool">Launch odrivetool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/configuring_odrive.html#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/configuring_odrive.html#current-limit">Current limit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/configuring_odrive.html#velocity-limit">Velocity limit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/configuring_odrive.html#enable-brake-resistor">Enable brake resistor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/configuring_odrive.html#brake-restance-value">Brake restance value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/configuring_odrive.html#pole-pairs">Pole pairs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/configuring_odrive.html#torque-constant">Torque constant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/configuring_odrive.html#calibrate-motors">Calibrate motors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/configuring_odrive.html#velocity-control">Velocity control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/configuring_odrive.html#save-configuration">Save configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/configuring_odrive.html#testing-and-troubleshooting">Testing and Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/configuring_odrive.html#request-closed-loop-control">Request closed-loop control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/configuring_odrive.html#dump-errors">Dump errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../guides/configuring_odrive.html#clear-errors">Clear errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/driving_uiabot.html">Using the UiAbot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/driving_uiabot.html#automatic-sourcing">Automatic Sourcing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/driving_uiabot.html#driving-remotely-with-keyboard">Driving remotely with keyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/driving_uiabot.html#visualizing-mechanical-odometry-lidar-and-imu">Visualizing mechanical odometry, LiDAR, and IMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/driving_uiabot.html#slam">SLAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/driving_uiabot.html#localization-and-navigation">Localization and navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../guides/driving_uiabot.html#slam-and-navigation">SLAM and navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../software_documentation.html">Software Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../uiabot.html">uiabot-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../uiabot.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uiabot.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uiabot.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../uiabot/control.html">control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../uiabot/mechanical_odometry.html">mechanical_odometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../uiabot/imu_tf_viz.html">imu_tf_viz</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../uiabot.html#package-structure">Package structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../uiabot.html#launch">launch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../uiabot.html#map">map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../uiabot.html#params">params</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../uiabot.html#urdf">urdf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../odrive_ros2.html">odrive-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../odrive_ros2.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../odrive_ros2.html#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../odrive_ros2.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../odrive_ros2.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../odrive_ros2/odrive_ros2.html">odrive-ros2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../odrive_interfaces.html">odrive-interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../odrive_interfaces.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../odrive_interfaces.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../bno055_i2c_ros2.html">bno055-i2c-ros2</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../bno055_i2c_ros2.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bno055_i2c_ros2.html#usage">Usage</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../bno055_i2c_ros2.html#nodes">Nodes</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">bno055-i2c-ros2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">UiAbot Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../software_documentation.html">Software Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../bno055_i2c_ros2.html">bno055-i2c-ros2</a></li>
+      <li class="breadcrumb-item active">bno055-i2c-ros2</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/src/software_documentation/bno055_i2c_ros2/bno055_i2c_ros2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bno055-i2c-ros2">
+<span id="bno055-i2c-ros2-pkg-bno055-i2c-ros2"></span><h1>bno055-i2c-ros2<a class="headerlink" href="#bno055-i2c-ros2" title="Link to this heading"></a></h1>
+<figure class="align-center" id="id1">
+<span id="bno055-i2c-ros2-pkg-bno055-i2c-ros2-diagram"></span><a class="reference internal image-reference" href="../../../_images/odrive_ros2_pkg_odrive_ros2.drawio.svg"><img alt="../../../_images/odrive_ros2_pkg_odrive_ros2.drawio.svg" src="../../../_images/odrive_ros2_pkg_odrive_ros2.drawio.svg" style="width: 1000px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure: bno055_i2c_ros2 node diagram.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<p>This is a ROS2 node for the BNO055 IMU that communicates via I2C and without any dependencies besides libi2c-dev.
+It is specifically targeted at using a BNO055 with NVIDIA boards such as the TX1, TX2, Xavier, Nano or any other board that has native I2C.</p>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">device</span></code> – the path to the i2c device. Default is /dev/i2c-1. Use i2cdetect in the i2c-tools package to find out which bus your IMU is on.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">address</span></code> – the i2c address of the IMU. Default is 0x28.</p></li>
+</ul>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<p>Run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>bno055_i2c_ros2<span class="w"> </span>bno055_i2c_ros2
+</pre></div>
+</div>
+</section>
+<section id="interfaces">
+<h2>Interfaces<a class="headerlink" href="#interfaces" title="Link to this heading"></a></h2>
+<section id="publishers">
+<h3>Publishers<a class="headerlink" href="#publishers" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Topic</p></th>
+<th class="head"><p>Message type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bno055/data</p></td>
+<td><p>sensor_msgs/Imu</p></td>
+<td><p>Fused IMU data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>bno055/raw</p></td>
+<td><p>sensor_msgs/Imu</p></td>
+<td><p>Raw accelerometer data.</p></td>
+</tr>
+<tr class="row-even"><td><p>bno055/mag</p></td>
+<td><p>sensor_msgs/MagneticField</p></td>
+<td><p>Raw magnetic field data</p></td>
+</tr>
+<tr class="row-odd"><td><p>bno055/temp</p></td>
+<td><p>sensor_msgs/Temperature</p></td>
+<td><p>Temperature data.</p></td>
+</tr>
+<tr class="row-even"><td><p>bno055/status</p></td>
+<td><p>diagnostic_msgs/DiagnosticStatus</p></td>
+<td><p>A DiagnosticStatus object showing the current calibration, interrupt, system status of the IMU.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../bno055_i2c_ros2.html" class="btn btn-neutral float-left" title="bno055-i2c-ros2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, University of Agder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

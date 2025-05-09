@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Localization and Mapping &mdash; UiAbot Documentation 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=fee868cc" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Localization and Navigation" href="localization_navigation.html" />
+    <link rel="prev" title="Perception" href="perception.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            UiAbot Documentation
+              <img src="../_static/uiabot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="project_description.html">Project Description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="project_description.html#design">Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_description.html#acknowledgment">Acknowledgment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation and Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#operating-system">Operating System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#setting-up-wi-fi">Setting up Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#connecting-to-uiabot-ssh">Connecting to UiAbot (SSH)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#set-up-bashrc">Set up <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#install-third-party-software">Install third-party software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#create-workspace">Create workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#install-developed-software">Install developed software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#build-the-workspace">Build the workspace</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Implementation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="motion_control.html">Motion Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="motion_control.html#motion-reference">Motion Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion_control.html#inverse-kinematics">Inverse Kinematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion_control.html#forward-kinematics">Forward Kinematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion_control.html#motor-controller">Motor Controller</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="perception.html">Perception</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="perception.html#wheel-encoders">Wheel Encoders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perception.html#inertial-measurement-unit-imu">Inertial Measurement Unit (IMU)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perception.html#lidar">LiDAR</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Localization and Mapping</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#odometry">Odometry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mechanical-odometry">Mechanical Odometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sensor-fusion">Sensor Fusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#simultaneous-localization-and-mapping-slam">Simultaneous Localization and Mapping (SLAM)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="localization_navigation.html">Localization and Navigation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#localization-in-predefined-map">Localization in predefined map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#slam-and-navigation">SLAM and Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#nav2-parameters">Nav2 parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Project Conclusion</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software and Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guides.html">Guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/configuring_odrive.html">Configuring ODrive</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guides/configuring_odrive.html#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#launch-odrivetool">Launch odrivetool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="guides/configuring_odrive.html#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#current-limit">Current limit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#velocity-limit">Velocity limit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#enable-brake-resistor">Enable brake resistor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#brake-restance-value">Brake restance value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#pole-pairs">Pole pairs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#torque-constant">Torque constant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#calibrate-motors">Calibrate motors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#velocity-control">Velocity control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#save-configuration">Save configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="guides/configuring_odrive.html#testing-and-troubleshooting">Testing and Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#request-closed-loop-control">Request closed-loop control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#dump-errors">Dump errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#clear-errors">Clear errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guides/driving_uiabot.html">Using the UiAbot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#automatic-sourcing">Automatic Sourcing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#driving-remotely-with-keyboard">Driving remotely with keyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#visualizing-mechanical-odometry-lidar-and-imu">Visualizing mechanical odometry, LiDAR, and IMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#slam">SLAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#localization-and-navigation">Localization and navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#slam-and-navigation">SLAM and navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guides/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="software_documentation.html">Software Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software_documentation/uiabot.html">uiabot-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/uiabot.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/uiabot.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/uiabot.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot/control.html">control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot/mechanical_odometry.html">mechanical_odometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot/imu_tf_viz.html">imu_tf_viz</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/uiabot.html#package-structure">Package structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot.html#launch">launch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot.html#map">map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot.html#params">params</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot.html#urdf">urdf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="software_documentation/odrive_ros2.html">odrive-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_ros2.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_ros2.html#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_ros2.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_ros2.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/odrive_ros2/odrive_ros2.html">odrive-ros2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="software_documentation/odrive_interfaces.html">odrive-interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_interfaces.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_interfaces.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="software_documentation/bno055_i2c_ros2.html">bno055-i2c-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/bno055_i2c_ros2.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/bno055_i2c_ros2.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/bno055_i2c_ros2.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/bno055_i2c_ros2/bno055_i2c_ros2.html">bno055-i2c-ros2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">UiAbot Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Localization and Mapping</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/src/localization_mapping.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="localization-and-mapping">
+<h1>Localization and Mapping<a class="headerlink" href="#localization-and-mapping" title="Link to this heading"></a></h1>
+<p>Localization and mapping are crucial for autonomous robot
+navigation. Localization involves estimating the robot’s position within a preexisting or concurrently generated map.
+Mapping, on the contrary, involves creating a representation of
+the environment from the robot’s sensor data.</p>
+<p>The figure below illustrates how localization and mapping is implemented by extending on the software from <a class="reference internal" href="perception.html#perception"><span class="std std-ref">Perception</span></a>.</p>
+<figure class="align-center" id="id1">
+<span id="localization-mapping-localization-mapping-diagram"></span><a class="reference internal image-reference" href="../_images/localization_mapping.drawio.svg"><img alt="../_images/localization_mapping.drawio.svg" src="../_images/localization_mapping.drawio.svg" style="width: 1000px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure: Localization and mapping communication diagram.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="odometry">
+<h2>Odometry<a class="headerlink" href="#odometry" title="Link to this heading"></a></h2>
+<p>A foundational method for localization utilizing motion sensors to estimate the robot’s position relative
+to a starting point is referred to as the odometry (odom) frame.
+UiAbot employs wheel encoders and an IMU for this purpose.</p>
+<section id="mechanical-odometry">
+<h3>Mechanical Odometry<a class="headerlink" href="#mechanical-odometry" title="Link to this heading"></a></h3>
+<p>Localization using encoders is often refered to as mechanical odometry, since it uses encoders to get data from the mechanical parts of the robot. In this project we use the  angular velocity feedback from the wheel encoders. The mechanical odometry uses the <a class="reference internal" href="motion_control.html#motion-control-forward-kinematics"><span class="std std-ref">Forward Kinematics</span></a> to calculate the actual robot velocities in the local coordinate frame, by transforming the angular velocities. The robot velocities are then integrated and decomposed to find the robot position and angle with respect to the <code class="docutils literal notranslate"><span class="pre">odom</span></code> frame. This is implemented in the <code class="docutils literal notranslate"><span class="pre">mechanical_odometry</span></code> node introduced in <a class="reference internal" href="motion_control.html#motion-control"><span class="std std-ref">Motion Control</span></a>. The <code class="docutils literal notranslate"><span class="pre">mechanical_odometry</span></code> node publishes the robot position and velocity w.r.t. the odom-frame in a <a class="reference external" href="http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html">nav_msgs/Odom</a> message on the <code class="docutils literal notranslate"><span class="pre">/mechanical_odometry</span></code> topic.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Command to run the <code class="docutils literal notranslate"><span class="pre">mechanical_odometry</span></code> node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>uiabot<span class="w"> </span>mechanical_odometry<span class="w"> </span>--ros-args<span class="w"> </span>-r<span class="w"> </span>use_tf:<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">use_tf</span></code> parameter is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>. This is because the <code class="docutils literal notranslate"><span class="pre">mechanical_odometry</span></code> node must publish the transform between the <code class="docutils literal notranslate"><span class="pre">odom</span></code> frame and robot <code class="docutils literal notranslate"><span class="pre">base_link</span></code> frame. This will later be set to <code class="docutils literal notranslate"><span class="pre">false</span></code> to avoid multiple transform broadcasters to the same frames.</p>
+</div>
+</section>
+<section id="sensor-fusion">
+<h3>Sensor Fusion<a class="headerlink" href="#sensor-fusion" title="Link to this heading"></a></h3>
+<p>The mechanical odometry is prone to drift because of small inaccuracies in the wheel encoder measurements, which will lead to errors accumulating over time while integrating. Errors will also be introduced if the robot is stuck and the wheels keep spinning, or the robot slips on a smooth surface. This means that the mechanical odometry is accurate only for short periods of time. However, by introducing the measurements from the IMU, we are able to get data about the robot movement, unrelated to the wheel velocities. This way we know if the robot is actually moving or not, by i.e. integrating the IMU’s acceleration data.</p>
+<p>Combining the data from the mechanical odometry and the IMU is done by using an <a class="reference external" href="https://en.wikipedia.org/wiki/Extended_Kalman_filter">extended Kalman Filter</a> (EKF). The EKF is a nonlinear version of the regular <a class="reference external" href="https://en.wikipedia.org/wiki/Kalman_filter">Kalman filter</a>, and is considered to be the de facto standard in the theory of nonlinear state estimation. The Kalman filter uses a series of measurements over time to estimate unknown variables that tends to be more accurate than the measurements alone. The Kalman filter also includes statistical noise and other inaccuracies to improve its estimation. On the UiAbot we are using the <code class="docutils literal notranslate"><span class="pre">ekf_filter_node</span></code> node from the <a class="reference external" href="http://docs.ros.org/en/noetic/api/robot_localization/html/state_estimation_nodes.html#ekf-localization-node">robot_localization</a> library to fuse the mechanical odometry and IMU data.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ekf_filter_node</span></code> node uses the parameter file <code class="docutils literal notranslate"><span class="pre">ekf_params.yaml</span></code> located in <code class="docutils literal notranslate"><span class="pre">/home/jetson/uiabot_ws/src/uiabot/params/ekf_params.yaml</span></code>. This file is based on the default parameter file, which is located in <code class="docutils literal notranslate"><span class="pre">/opt/ros/humble/share/robot_localization/params/ekf.yaml</span></code>.</p>
+<p>The first parameter that is updated is the <code class="docutils literal notranslate"><span class="pre">use_sim_time</span></code> parameter. This decides which clock to use for synchronization. Typically this is set to <code class="docutils literal notranslate"><span class="pre">true</span></code> when simulating, since then all nodes should synchronize with the simulation clock. However, since we are running on the real robot, we set this parameter to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">use_sim_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</div>
+<p>Since we want to fuse the mechanical odometry and IMU data, we updated the following parameters to define which ROS 2 topics the sensor data is sent on:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">odom0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mechanical_odometry</span>
+<span class="nt">imu0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bno055/data</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ekf_filter_node</span></code> node also publishes the transform between the <code class="docutils literal notranslate"><span class="pre">odom</span></code> and <code class="docutils literal notranslate"><span class="pre">base_link</span></code> frames, the frame names are defined by these parameters:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">odom_frame</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">odom</span>
+<span class="nt">base_link_frame</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">base_link</span>
+</pre></div>
+</div>
+<p>Since the UiAbot works in a planar environment, we can assume that there will be no movement along the z-axis. We can also assume that the roll and pitch is zero. Based on these assumptions the <code class="docutils literal notranslate"><span class="pre">two_d_mode</span></code> parameter is set to true, which effectively ignores the z, roll and pitch information from the sensors. This is beneficial because small imperfections and variations in the ground plane will introduce noise to the sensors.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">two_d_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<p>The parameter vector for which data to fuse is defined in a vector with this structure:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># not a real parameter, just to show the structure</span>
+<span class="nt">sensorX_config</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">x_pos</span><span class="w">   </span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">y_pos</span><span class="w">    </span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">z_pos</span><span class="p p-Indicator">,</span>
+<span class="w">                 </span><span class="nv">roll</span><span class="w">    </span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">pitch</span><span class="w">    </span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">yaw</span><span class="p p-Indicator">,</span>
+<span class="w">                 </span><span class="nv">x_vel</span><span class="w">   </span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">y_vel</span><span class="w">    </span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">z_vel</span><span class="p p-Indicator">,</span>
+<span class="w">                 </span><span class="nv">roll_vel</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">pitch_vel</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">yaw_vel</span><span class="p p-Indicator">,</span>
+<span class="w">                 </span><span class="nv">x_accel</span><span class="w"> </span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">y_accel</span><span class="w">  </span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">z_accel</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>The mechanical odometry message contains information about the robot pose and velocities, and while it is tempting to use all this information, you should not. Since the pose is integrated from the velocities, this would introduce duplicate information to the filter. Therefore, it is best to just use the velocity data. If the mechanical odometry provided the position and/or heading from a different sensor than the wheels, that would be another case. The parameter vector defining which data to fuse from the mechanical odometry is then updated to:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">odom0_config</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span>
+<span class="w">               </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span>
+<span class="w">               </span><span class="nv">true</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span>
+<span class="w">               </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">,</span>
+<span class="w">               </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>The IMU message contains information about the robot acceleration, orientation, and angular rate. Since the IMU consists of several sensors, the data is not duplicate and we can include both yaw and yaw rate. We ignore the other orientations and angular rates because of the <code class="docutils literal notranslate"><span class="pre">two_d_mode</span></code> parameter set earlier. We are setting the y-axis acceleration to false, because we are not expecting any acceleration in that direction. Technically this could be set to true, but because the the acceleration data often is noisy, it is best to ignore it. The x-acceleration is set to true, because this is the driving direction of the UiAbot:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">imu0_config</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span>
+<span class="w">              </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w">  </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w">  </span><span class="nv">true</span><span class="p p-Indicator">,</span>
+<span class="w">              </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">false</span><span class="p p-Indicator">,</span>
+<span class="w">              </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w">  </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w">  </span><span class="nv">true</span><span class="p p-Indicator">,</span>
+<span class="w">              </span><span class="nv">true</span><span class="p p-Indicator">,</span><span class="w">  </span><span class="nv">false</span><span class="p p-Indicator">,</span><span class="w">  </span><span class="nv">false</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>The last parameter to update is the <code class="docutils literal notranslate"><span class="pre">imu0_remove_gravitational_acceleration</span></code> parameter, which should be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> if the IMU does not remove the gravitational acceleration. Since our IMU does this, the parameter is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">imu0_remove_gravitational_acceleration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Command to run the <code class="docutils literal notranslate"><span class="pre">mechanical_odometry</span></code> node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>uiabot<span class="w"> </span>mechanical_odometry<span class="w"> </span>--ros-args<span class="w"> </span>-r<span class="w"> </span>use_tf:<span class="o">=</span><span class="nb">false</span>
+</pre></div>
+</div>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">use_tf</span></code> parameter is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>. This is because the <code class="docutils literal notranslate"><span class="pre">ekf_filter_node</span></code> node will now publish the transform between the <code class="docutils literal notranslate"><span class="pre">odom</span></code> frame and robot <code class="docutils literal notranslate"><span class="pre">base_link</span></code> frame.</p>
+<p>Command to run the <code class="docutils literal notranslate"><span class="pre">ekf_filter_node</span></code> node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>robot_localization<span class="w"> </span>ekf_filter_node<span class="w"> </span>--ros-args<span class="w"> </span>--params-file<span class="w"> </span>./src/uiabot/params/ekf_params.yaml
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="simultaneous-localization-and-mapping-slam">
+<span id="localization-mapping-slam"></span><h2>Simultaneous Localization and Mapping (SLAM)<a class="headerlink" href="#simultaneous-localization-and-mapping-slam" title="Link to this heading"></a></h2>
+<p>SLAM is the process of continously creating a map of the current surroundings. For the robot to be able to create a map, it needs data that can be used for such a task, typically vision data. The UiAbot is equipped with a 2D LiDAR, which gives the robot information about the distance to objects surrounding the robot in a plane. The robot must then have to consider which objects that are less likely to move, such as walls. These objects will form the base of the map. After finding these objects in the current robot position, the robot must move to get data from the remaining of the surroundings. While moving the objects previously drawn on the map will also move, because the LiDAR will now register these as closer or further away. This is the part where the robot must localize itself relative to the already drawn map, before it can continue drawing.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/slam.svg"><img alt="../_images/slam.svg" src="../_images/slam.svg" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure: A gif showing the UiAbot performing SLAM.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>For this project we are using the <code class="docutils literal notranslate"><span class="pre">slam_toolbox</span></code> developed by Steve Macenski, which is also the default SLAM library used in Nav 2. Link to the source code <a class="reference external" href="https://github.com/SteveMacenski/slam_toolbox">here</a>. The <code class="docutils literal notranslate"><span class="pre">slam_toolbox</span></code> updates the UiAbot <code class="docutils literal notranslate"><span class="pre">base_link</span></code> relative to the <code class="docutils literal notranslate"><span class="pre">map</span></code> frame whenever it localizes itself. This in turn corrects the <code class="docutils literal notranslate"><span class="pre">odom</span></code> frame. This can be seen in the Figure below, where the <code class="docutils literal notranslate"><span class="pre">map</span></code> and <code class="docutils literal notranslate"><span class="pre">odom</span></code> frame initially has the same pose. However, the <code class="docutils literal notranslate"><span class="pre">odom</span></code> frame drifts and is corrected over time, while the <code class="docutils literal notranslate"><span class="pre">map</span></code> frame is not changed.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/slam.gif"><img alt="../_images/slam.gif" src="../_images/slam.gif" style="width: 1000px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure: A gif showing the UiAbot performing SLAM.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Command to launch the <code class="docutils literal notranslate"><span class="pre">online_async_launch.py</span></code> nodes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>slam_toolbox<span class="w"> </span>online_async_launch.py
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="perception.html" class="btn btn-neutral float-left" title="Perception" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="localization_navigation.html" class="btn btn-neutral float-right" title="Localization and Navigation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, University of Agder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

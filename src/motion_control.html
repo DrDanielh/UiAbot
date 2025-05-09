@@ -1,0 +1,392 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motion Control &mdash; UiAbot Documentation 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=fee868cc" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Perception" href="perception.html" />
+    <link rel="prev" title="Installation and Setup" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            UiAbot Documentation
+              <img src="../_static/uiabot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="project_description.html">Project Description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="project_description.html#design">Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_description.html#acknowledgment">Acknowledgment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation and Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#operating-system">Operating System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#setting-up-wi-fi">Setting up Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#connecting-to-uiabot-ssh">Connecting to UiAbot (SSH)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#set-up-bashrc">Set up <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#install-third-party-software">Install third-party software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#create-workspace">Create workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#install-developed-software">Install developed software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#build-the-workspace">Build the workspace</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Implementation:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Motion Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#motion-reference">Motion Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inverse-kinematics">Inverse Kinematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#forward-kinematics">Forward Kinematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#motor-controller">Motor Controller</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="perception.html">Perception</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="perception.html#wheel-encoders">Wheel Encoders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perception.html#inertial-measurement-unit-imu">Inertial Measurement Unit (IMU)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perception.html#lidar">LiDAR</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="localization_mapping.html">Localization and Mapping</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="localization_mapping.html#odometry">Odometry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="localization_mapping.html#mechanical-odometry">Mechanical Odometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="localization_mapping.html#sensor-fusion">Sensor Fusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="localization_mapping.html#simultaneous-localization-and-mapping-slam">Simultaneous Localization and Mapping (SLAM)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="localization_navigation.html">Localization and Navigation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#localization-in-predefined-map">Localization in predefined map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#slam-and-navigation">SLAM and Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#nav2-parameters">Nav2 parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Project Conclusion</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software and Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guides.html">Guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/configuring_odrive.html">Configuring ODrive</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guides/configuring_odrive.html#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#launch-odrivetool">Launch odrivetool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="guides/configuring_odrive.html#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#current-limit">Current limit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#velocity-limit">Velocity limit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#enable-brake-resistor">Enable brake resistor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#brake-restance-value">Brake restance value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#pole-pairs">Pole pairs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#torque-constant">Torque constant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#calibrate-motors">Calibrate motors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#velocity-control">Velocity control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#save-configuration">Save configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="guides/configuring_odrive.html#testing-and-troubleshooting">Testing and Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#request-closed-loop-control">Request closed-loop control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#dump-errors">Dump errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#clear-errors">Clear errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guides/driving_uiabot.html">Using the UiAbot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#automatic-sourcing">Automatic Sourcing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#driving-remotely-with-keyboard">Driving remotely with keyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#visualizing-mechanical-odometry-lidar-and-imu">Visualizing mechanical odometry, LiDAR, and IMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#slam">SLAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#localization-and-navigation">Localization and navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#slam-and-navigation">SLAM and navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guides/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="software_documentation.html">Software Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software_documentation/uiabot.html">uiabot-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/uiabot.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/uiabot.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/uiabot.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot/control.html">control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot/mechanical_odometry.html">mechanical_odometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot/imu_tf_viz.html">imu_tf_viz</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/uiabot.html#package-structure">Package structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot.html#launch">launch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot.html#map">map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot.html#params">params</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot.html#urdf">urdf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="software_documentation/odrive_ros2.html">odrive-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_ros2.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_ros2.html#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_ros2.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_ros2.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/odrive_ros2/odrive_ros2.html">odrive-ros2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="software_documentation/odrive_interfaces.html">odrive-interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_interfaces.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_interfaces.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="software_documentation/bno055_i2c_ros2.html">bno055-i2c-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/bno055_i2c_ros2.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/bno055_i2c_ros2.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/bno055_i2c_ros2.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/bno055_i2c_ros2/bno055_i2c_ros2.html">bno055-i2c-ros2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">UiAbot Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Motion Control</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/src/motion_control.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="motion-control">
+<span id="id1"></span><h1>Motion Control<a class="headerlink" href="#motion-control" title="Link to this heading"></a></h1>
+<p>Motion control is a key aspect of robotic functionality,
+allowing precise movement based on predetermined references
+within the robot’s local coordinate system. This involves generating linear and angular velocity references, which are then
+translated into specific wheel velocities via inverse kinematics.
+The controller board receives these velocity references to
+control the wheel’s motion, with feedback on actual velocities
+provided by the wheel encoders. This feedback is crucial
+for odometry, which employs forward kinematics to convert
+wheel velocities back into robot frame velocities for accurate
+positioning.</p>
+<p>The figure below illustrates how this is implemented in ROS 2.</p>
+<figure class="align-center" id="id3">
+<span id="motion-control-motion-control-diagram"></span><a class="reference internal image-reference" href="../_images/motion_control.drawio.svg"><img alt="../_images/motion_control.drawio.svg" src="../_images/motion_control.drawio.svg" style="width: 1000px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure: Motion control communication diagram.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="motion-reference">
+<h2>Motion Reference<a class="headerlink" href="#motion-reference" title="Link to this heading"></a></h2>
+<p>UiAbot’s motion is guided by linear
+and angular velocity references, specified in the robot’s local
+coordinate frame. These references are generated by publishing <a class="reference external" href="http://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/Twist.html">geometry_msgs/Twist</a> message to the <code class="docutils literal notranslate"><span class="pre">/cmd_vel</span></code> topic.</p>
+<p>The figure above shows this by using the built-in <code class="docutils literal notranslate"><span class="pre">teleop_twist_keyboard</span></code> node, that converts keyboard input to linear and angular velocity. Another solution would be to create a node that generates a trajectory and publishes a <a class="reference external" href="http://docs.ros.org/en/noetic/api/geometry_msgs/html/msg/Twist.html">geometry_msgs/Twist</a> message to the <code class="docutils literal notranslate"><span class="pre">/cmd_vel</span></code> topic.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Command to run the <code class="docutils literal notranslate"><span class="pre">teleop_twist_keyboard</span></code> node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>teleop_twist_keyboard<span class="w"> </span>teleop_twist_keyboard
+</pre></div>
+</div>
+</div>
+</section>
+<section id="inverse-kinematics">
+<span id="motion-control-inverse-kinematics"></span><h2>Inverse Kinematics<a class="headerlink" href="#inverse-kinematics" title="Link to this heading"></a></h2>
+<p>To translate the desired motion
+from the robot’s coordinate frame into wheel-specific velocity
+commands, inverse kinematics is used. The kinematic model
+considers the robot’s geometry, particularly how linear and
+angular velocities correlate with wheel rotations, as shown in
+the figure below.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/ICEA25_UiAbot_review.svg"><img alt="../_images/ICEA25_UiAbot_review.svg" src="../_images/ICEA25_UiAbot_review.svg" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure: Definition of the robot’s local coordinate system for kinematic analysis.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Each wheel has the linear velocities <span class="math notranslate nohighlight">\(\dot{x_r}\)</span> and <span class="math notranslate nohighlight">\(\dot{x_l}\)</span>, corresponding to right and left wheels, respectively. As shown in the figure below, the wheel angular velocity is denoted by <span class="math notranslate nohighlight">\(\dot{\phi}\)</span>, and wheel radius by <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/wheel_figure.svg"><img alt="../_images/wheel_figure.svg" src="../_images/wheel_figure.svg" style="width: 250px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure: Wheel definition.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The linear velocities for the wheels can be written as.</p>
+<div class="math notranslate nohighlight" id="equation-linear-vel-wheel">
+<span class="eqno">(1)<a class="headerlink" href="#equation-linear-vel-wheel" title="Link to this equation"></a></span>\[\begin{split}\dot{x}_{r} = \dot{\phi}_{r}r \\
+\dot{x}_{l} = \dot{\phi}_{l}r\end{split}\]</div>
+<div class="line-block">
+<div class="line"><strong>Considering pure translational velocity</strong></div>
+<div class="line">We first consider that the robot has pure translational velocity. Since we are looking at the robot in the local coordinate frame, the linear velocity is composed of a velocities along the x- and y-axis. However, assuming zero slip, which means <span class="math notranslate nohighlight">\(\dot{y}=0\)</span>. The linear velocity is only <span class="math notranslate nohighlight">\(\dot{x}\)</span>. For the robot to have pure translation velocity, both wheels will need to have the same angular velocities. This yields the following equation.</div>
+</div>
+<div class="math notranslate nohighlight" id="equation-trans-vel">
+<span class="eqno">(2)<a class="headerlink" href="#equation-trans-vel" title="Link to this equation"></a></span>\[\begin{split}\begin{align}
+    \dot{x}_{r} = \dot{x}_{l} = \dot{x} \\
+    \Rightarrow \dot{\phi}_{r}r = \dot{\phi}_{l}r = \dot{x} \\
+    \Rightarrow \dot{\phi}_{r} = \dot{\phi}_{l} = \frac{\dot{x}}{r}
+\end{align}\end{split}\]</div>
+<div class="line-block">
+<div class="line"><strong>Considering pure angular velocity</strong></div>
+<div class="line">We then consider that the robot has pure rotational velocity. The robot rotational velocity is denoted as <span class="math notranslate nohighlight">\(\dot{\theta}\)</span>. For the robot to have pure rotational velocity, the wheels will need to have opposite angular velocites.</div>
+</div>
+<div class="math notranslate nohighlight" id="equation-rot-vel-opposite">
+<span class="eqno">(3)<a class="headerlink" href="#equation-rot-vel-opposite" title="Link to this equation"></a></span>\[\dot{\phi}_{r} = -\dot{\phi}_{l}\]</div>
+<p>Assuming no lateral movement, the wheels must follow a circle, which yields the following equations for the right <a class="reference internal" href="#equation-rot-vel-r">(4)</a> and left wheel <a class="reference internal" href="#equation-rot-vel-l">(5)</a>.</p>
+<div class="math notranslate nohighlight" id="equation-rot-vel-r">
+<span class="eqno">(4)<a class="headerlink" href="#equation-rot-vel-r" title="Link to this equation"></a></span>\[\dot{\phi}_{r}r = \frac{L}{2}\dot{\theta} \Rightarrow \dot{\phi}_{r} = \frac{L}{2}\frac{\dot{\theta}}{r}\]</div>
+<div class="math notranslate nohighlight" id="equation-rot-vel-l">
+<span class="eqno">(5)<a class="headerlink" href="#equation-rot-vel-l" title="Link to this equation"></a></span>\[\dot{\phi}_{l}r = -\frac{L}{2}\dot{\theta} \Rightarrow \dot{\phi}_{l} = -\frac{L}{2}\frac{\dot{\theta}}{r}\]</div>
+<div class="line-block">
+<div class="line"><strong>Combining the velocities</strong></div>
+<div class="line">Since both the definintion of the linear <a class="reference internal" href="#equation-r-wheel">(6)</a> and angular velocites are valid in vector-space, these can be added together for the right and left wheel in equation <a class="reference internal" href="#equation-r-wheel">(6)</a> and <a class="reference internal" href="#equation-l-wheel">(7)</a>. This yields expressions for the wheel angular velocities, <span class="math notranslate nohighlight">\(\dot{\phi}_r\)</span> and <span class="math notranslate nohighlight">\(\dot{\phi}_l\)</span>, given the linear and angular robot velocites, <span class="math notranslate nohighlight">\(\dot{x}\)</span> and <span class="math notranslate nohighlight">\(\dot{\theta}\)</span>.</div>
+</div>
+<div class="math notranslate nohighlight" id="equation-r-wheel">
+<span class="eqno">(6)<a class="headerlink" href="#equation-r-wheel" title="Link to this equation"></a></span>\[\dot{\phi}_{r} = \frac{\dot{x}}{r} + \frac{L}{2}\frac{\dot{\theta}}{r}\]</div>
+<div class="math notranslate nohighlight" id="equation-l-wheel">
+<span class="eqno">(7)<a class="headerlink" href="#equation-l-wheel" title="Link to this equation"></a></span>\[\dot{\phi}_{l} = \frac{\dot{x}}{r} - \frac{L}{2}\frac{\dot{\theta}}{r}\]</div>
+<p>The inverse kinematics can then be written in matrix form as.</p>
+<div class="math notranslate nohighlight" id="equation-inverse-kinematics">
+<span class="eqno">(8)<a class="headerlink" href="#equation-inverse-kinematics" title="Link to this equation"></a></span>\[\begin{split}\begin{bmatrix}\dot{\phi}_r \\ \dot{\phi}_l \end{bmatrix} = \frac{1}{r} \begin{bmatrix}1 &amp; \frac{L}{2} \\ 1 &amp; -\frac{L}{2}  \end{bmatrix}\begin{bmatrix}\dot{x} \\ \dot{\theta}\end{bmatrix}\end{split}\]</div>
+<p>The inverse kinematics of the robot is implemented in the <a class="reference internal" href="software_documentation/uiabot/control.html#uiabot-pkg-control"><span class="std std-ref">control</span></a> node.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/control-node.svg"><img alt="../_images/control-node.svg" src="../_images/control-node.svg" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure: The UiAbot ROS 2 control node diagram.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Command to run the <code class="docutils literal notranslate"><span class="pre">control</span></code> node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>uiabot<span class="w"> </span>control
+</pre></div>
+</div>
+</div>
+</section>
+<section id="forward-kinematics">
+<span id="motion-control-forward-kinematics"></span><h2>Forward Kinematics<a class="headerlink" href="#forward-kinematics" title="Link to this heading"></a></h2>
+<p>The forward kinematics is used to transform wheel angular velocities, <span class="math notranslate nohighlight">\(\dot{\phi}_r\)</span> and <span class="math notranslate nohighlight">\(\dot{\phi}_l\)</span>, to robot angular and linear velocities, <span class="math notranslate nohighlight">\(\dot{x}\)</span> and <span class="math notranslate nohighlight">\(\dot{\theta}\)</span>, given in the local coordinate frame. Based on equation <a class="reference internal" href="#equation-inverse-kinematics">(8)</a> from the inverse kinematics, we can solve for <span class="math notranslate nohighlight">\(\dot{x}\)</span> and <span class="math notranslate nohighlight">\(\dot{\theta}\)</span>. Which gives the following equation.</p>
+<div class="math notranslate nohighlight" id="equation-forward-kinematics">
+<span class="eqno">(9)<a class="headerlink" href="#equation-forward-kinematics" title="Link to this equation"></a></span>\[\begin{split}\begin{bmatrix}\dot{x} \\ \dot{\theta}\end{bmatrix} = \begin{bmatrix}\frac{r}{2} &amp; \frac{r}{2} \\ \frac{L}{2} &amp; -\frac{L}{2}\end{bmatrix} \begin{bmatrix}\dot{\phi}_r \\ \dot{\phi}_l \end{bmatrix}\end{split}\]</div>
+<p>The forward kinematics of the robot is implemented in the <a class="reference internal" href="software_documentation/uiabot/mechanical_odometry.html#uiabot-pkg-mechanical-odometry"><span class="std std-ref">mechanical_odometry</span></a> node.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/odom.svg"><img alt="../_images/odom.svg" src="../_images/odom.svg" style="width: 700px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure: The UiAbot ROS 2 mechanical odometry node diagram.</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Command to run the <code class="docutils literal notranslate"><span class="pre">mechanical_odometry</span></code> node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>uiabot<span class="w"> </span>mechanical_odometry
+</pre></div>
+</div>
+</div>
+</section>
+<section id="motor-controller">
+<span id="motion-control-controller"></span><h2>Motor Controller<a class="headerlink" href="#motor-controller" title="Link to this heading"></a></h2>
+<p>On the uiabot, the motors are driven by a ODrive controller board, which is connected to the Jetson Nano through USB. To make the ODrive available on the ROS 2 network, an interface node is created: <a class="reference internal" href="software_documentation/odrive_ros2/odrive_ros2.html#odrive-ros2-pkg-odrive-ros2"><span class="std std-ref">odrive-ros2</span></a>. This node makes it possible to publish velocity references to each wheel.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../_images/odrive.svg"><img alt="../_images/odrive.svg" src="../_images/odrive.svg" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure: The ROS 2 ODrive controller node diagram.</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Command to run the <code class="docutils literal notranslate"><span class="pre">odrive_ros2</span></code> node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>odrive_ros2<span class="w"> </span>odrive_ros2
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation and Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="perception.html" class="btn btn-neutral float-right" title="Perception" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, University of Agder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

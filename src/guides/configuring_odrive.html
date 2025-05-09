@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuring ODrive &mdash; UiAbot Documentation 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=fee868cc" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Using the UiAbot" href="driving_uiabot.html" />
+    <link rel="prev" title="Guides" href="../guides.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            UiAbot Documentation
+              <img src="../../_static/uiabot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../project_description.html">Project Description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../project_description.html#design">Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../project_description.html#acknowledgment">Acknowledgment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation and Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#operating-system">Operating System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#setting-up-wi-fi">Setting up Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#connecting-to-uiabot-ssh">Connecting to UiAbot (SSH)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#set-up-bashrc">Set up <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#install-third-party-software">Install third-party software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#create-workspace">Create workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#install-developed-software">Install developed software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#build-the-workspace">Build the workspace</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Implementation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../motion_control.html">Motion Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../motion_control.html#motion-reference">Motion Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion_control.html#inverse-kinematics">Inverse Kinematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion_control.html#forward-kinematics">Forward Kinematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion_control.html#motor-controller">Motor Controller</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../perception.html">Perception</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../perception.html#wheel-encoders">Wheel Encoders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../perception.html#inertial-measurement-unit-imu">Inertial Measurement Unit (IMU)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../perception.html#lidar">LiDAR</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../localization_mapping.html">Localization and Mapping</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../localization_mapping.html#odometry">Odometry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../localization_mapping.html#mechanical-odometry">Mechanical Odometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../localization_mapping.html#sensor-fusion">Sensor Fusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../localization_mapping.html#simultaneous-localization-and-mapping-slam">Simultaneous Localization and Mapping (SLAM)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../localization_navigation.html">Localization and Navigation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../localization_navigation.html#localization-in-predefined-map">Localization in predefined map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../localization_navigation.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../localization_navigation.html#slam-and-navigation">SLAM and Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../localization_navigation.html#nav2-parameters">Nav2 parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../conclusion.html">Project Conclusion</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software and Guides:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../guides.html">Guides</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Configuring ODrive</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#launch-odrivetool">Launch odrivetool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#current-limit">Current limit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#velocity-limit">Velocity limit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enable-brake-resistor">Enable brake resistor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#brake-restance-value">Brake restance value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pole-pairs">Pole pairs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#torque-constant">Torque constant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calibrate-motors">Calibrate motors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#velocity-control">Velocity control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#save-configuration">Save configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-and-troubleshooting">Testing and Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#request-closed-loop-control">Request closed-loop control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dump-errors">Dump errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clear-errors">Clear errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="driving_uiabot.html">Using the UiAbot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="driving_uiabot.html#automatic-sourcing">Automatic Sourcing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="driving_uiabot.html#driving-remotely-with-keyboard">Driving remotely with keyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="driving_uiabot.html#visualizing-mechanical-odometry-lidar-and-imu">Visualizing mechanical odometry, LiDAR, and IMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="driving_uiabot.html#slam">SLAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="driving_uiabot.html#localization-and-navigation">Localization and navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="driving_uiabot.html#slam-and-navigation">SLAM and navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../software_documentation.html">Software Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../software_documentation/uiabot.html">uiabot-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../software_documentation/uiabot.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software_documentation/uiabot.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software_documentation/uiabot.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../software_documentation/uiabot/control.html">control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../software_documentation/uiabot/mechanical_odometry.html">mechanical_odometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../software_documentation/uiabot/imu_tf_viz.html">imu_tf_viz</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../software_documentation/uiabot.html#package-structure">Package structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../software_documentation/uiabot.html#launch">launch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../software_documentation/uiabot.html#map">map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../software_documentation/uiabot.html#params">params</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../software_documentation/uiabot.html#urdf">urdf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../software_documentation/odrive_ros2.html">odrive-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../software_documentation/odrive_ros2.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software_documentation/odrive_ros2.html#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software_documentation/odrive_ros2.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software_documentation/odrive_ros2.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../software_documentation/odrive_ros2/odrive_ros2.html">odrive-ros2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../software_documentation/odrive_interfaces.html">odrive-interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../software_documentation/odrive_interfaces.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software_documentation/odrive_interfaces.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../software_documentation/bno055_i2c_ros2.html">bno055-i2c-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../software_documentation/bno055_i2c_ros2.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software_documentation/bno055_i2c_ros2.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software_documentation/bno055_i2c_ros2.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../software_documentation/bno055_i2c_ros2/bno055_i2c_ros2.html">bno055-i2c-ros2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">UiAbot Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../guides.html">Guides</a></li>
+      <li class="breadcrumb-item active">Configuring ODrive</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/src/guides/configuring_odrive.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuring-odrive">
+<h1>Configuring ODrive<a class="headerlink" href="#configuring-odrive" title="Link to this heading"></a></h1>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<section id="launch-odrivetool">
+<h3>Launch odrivetool<a class="headerlink" href="#launch-odrivetool" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrivetool
+</pre></div>
+</div>
+</section>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<section id="current-limit">
+<h3>Current limit<a class="headerlink" href="#current-limit" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.axis0.motor.config.current_lim<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+odrv0.axis1.motor.config.current_lim<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+</pre></div>
+</div>
+</section>
+<section id="velocity-limit">
+<h3>Velocity limit<a class="headerlink" href="#velocity-limit" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.axis0.controller.config.vel_limit<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span>
+odrv0.axis1.controller.config.vel_limit<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span>
+</pre></div>
+</div>
+</section>
+<section id="enable-brake-resistor">
+<h3>Enable brake resistor<a class="headerlink" href="#enable-brake-resistor" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.config.enable_brake_resistor<span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+</pre></div>
+</div>
+</section>
+<section id="brake-restance-value">
+<h3>Brake restance value<a class="headerlink" href="#brake-restance-value" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.config.brake_resistance<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.05
+</pre></div>
+</div>
+</section>
+<section id="pole-pairs">
+<h3>Pole pairs<a class="headerlink" href="#pole-pairs" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.axis0.motor.config.pole_pairs<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span>
+odrv0.axis1.motor.config.pole_pairs<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span>
+</pre></div>
+</div>
+</section>
+<section id="torque-constant">
+<h3>Torque constant<a class="headerlink" href="#torque-constant" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.axis0.motor.config.torque_constant<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span>.27/270
+odrv0.axis1.motor.config.torque_constant<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span>.27/270
+</pre></div>
+</div>
+</section>
+<section id="calibrate-motors">
+<h3>Calibrate motors<a class="headerlink" href="#calibrate-motors" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.axis0.requested_state<span class="w"> </span><span class="o">=</span><span class="w"> </span>AXIS_STATE_FULL_CALIBRATION_SEQUENCE
+odrv0.axis1.requested_state<span class="w"> </span><span class="o">=</span><span class="w"> </span>AXIS_STATE_FULL_CALIBRATION_SEQUENCE
+</pre></div>
+</div>
+</section>
+<section id="velocity-control">
+<h3>Velocity control<a class="headerlink" href="#velocity-control" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.axis0.controller.config.control_mode<span class="w"> </span><span class="o">=</span><span class="w"> </span>CONTROL_MODE_VELOCITY_CONTROL
+odrv0.axis1.controller.config.control_mode<span class="w"> </span><span class="o">=</span><span class="w"> </span>CONTROL_MODE_VELOCITY_CONTROL
+</pre></div>
+</div>
+</section>
+<section id="save-configuration">
+<h3>Save configuration<a class="headerlink" href="#save-configuration" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.save_configuration<span class="o">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="testing-and-troubleshooting">
+<h2>Testing and Troubleshooting<a class="headerlink" href="#testing-and-troubleshooting" title="Link to this heading"></a></h2>
+<section id="request-closed-loop-control">
+<h3>Request closed-loop control<a class="headerlink" href="#request-closed-loop-control" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.axis0.requested_state<span class="w"> </span><span class="o">=</span><span class="w"> </span>AXIS_STATE_CLOSED_LOOP_CONTROL
+odrv0.axis1.requested_state<span class="w"> </span><span class="o">=</span><span class="w"> </span>AXIS_STATE_CLOSED_LOOP_CONTROL
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.axis0.controller.input_vel<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+odrv0.axis1.controller.input_vel<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</section>
+<section id="dump-errors">
+<h3>Dump errors<a class="headerlink" href="#dump-errors" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dump_errors<span class="o">(</span>odrv0<span class="o">)</span>
+</pre></div>
+</div>
+</section>
+<section id="clear-errors">
+<h3>Clear errors<a class="headerlink" href="#clear-errors" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.clear_errors<span class="o">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../guides.html" class="btn btn-neutral float-left" title="Guides" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="driving_uiabot.html" class="btn btn-neutral float-right" title="Using the UiAbot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, University of Agder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

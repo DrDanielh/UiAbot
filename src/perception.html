@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perception &mdash; UiAbot Documentation 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=fee868cc" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Localization and Mapping" href="localization_mapping.html" />
+    <link rel="prev" title="Motion Control" href="motion_control.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            UiAbot Documentation
+              <img src="../_static/uiabot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="project_description.html">Project Description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="project_description.html#design">Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_description.html#acknowledgment">Acknowledgment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation and Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#operating-system">Operating System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#setting-up-wi-fi">Setting up Wi-Fi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#connecting-to-uiabot-ssh">Connecting to UiAbot (SSH)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#set-up-bashrc">Set up <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#install-third-party-software">Install third-party software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#create-workspace">Create workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#install-developed-software">Install developed software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#build-the-workspace">Build the workspace</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Implementation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="motion_control.html">Motion Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="motion_control.html#motion-reference">Motion Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion_control.html#inverse-kinematics">Inverse Kinematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion_control.html#forward-kinematics">Forward Kinematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion_control.html#motor-controller">Motor Controller</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Perception</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#wheel-encoders">Wheel Encoders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inertial-measurement-unit-imu">Inertial Measurement Unit (IMU)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lidar">LiDAR</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="localization_mapping.html">Localization and Mapping</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="localization_mapping.html#odometry">Odometry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="localization_mapping.html#mechanical-odometry">Mechanical Odometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="localization_mapping.html#sensor-fusion">Sensor Fusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="localization_mapping.html#simultaneous-localization-and-mapping-slam">Simultaneous Localization and Mapping (SLAM)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="localization_navigation.html">Localization and Navigation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#localization-in-predefined-map">Localization in predefined map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#slam-and-navigation">SLAM and Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#nav2-parameters">Nav2 parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Project Conclusion</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software and Guides:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guides.html">Guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/configuring_odrive.html">Configuring ODrive</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guides/configuring_odrive.html#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#launch-odrivetool">Launch odrivetool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="guides/configuring_odrive.html#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#current-limit">Current limit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#velocity-limit">Velocity limit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#enable-brake-resistor">Enable brake resistor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#brake-restance-value">Brake restance value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#pole-pairs">Pole pairs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#torque-constant">Torque constant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#calibrate-motors">Calibrate motors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#velocity-control">Velocity control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#save-configuration">Save configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="guides/configuring_odrive.html#testing-and-troubleshooting">Testing and Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#request-closed-loop-control">Request closed-loop control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#dump-errors">Dump errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guides/configuring_odrive.html#clear-errors">Clear errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guides/driving_uiabot.html">Using the UiAbot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#automatic-sourcing">Automatic Sourcing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#driving-remotely-with-keyboard">Driving remotely with keyboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#visualizing-mechanical-odometry-lidar-and-imu">Visualizing mechanical odometry, LiDAR, and IMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#slam">SLAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#localization-and-navigation">Localization and navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guides/driving_uiabot.html#slam-and-navigation">SLAM and navigation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guides/troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="software_documentation.html">Software Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software_documentation/uiabot.html">uiabot-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/uiabot.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/uiabot.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/uiabot.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot/control.html">control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot/mechanical_odometry.html">mechanical_odometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot/imu_tf_viz.html">imu_tf_viz</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/uiabot.html#package-structure">Package structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot.html#launch">launch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot.html#map">map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot.html#params">params</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot.html#urdf">urdf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="software_documentation/odrive_ros2.html">odrive-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_ros2.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_ros2.html#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_ros2.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_ros2.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/odrive_ros2/odrive_ros2.html">odrive-ros2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="software_documentation/odrive_interfaces.html">odrive-interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_interfaces.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_interfaces.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="software_documentation/bno055_i2c_ros2.html">bno055-i2c-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/bno055_i2c_ros2.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/bno055_i2c_ros2.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/bno055_i2c_ros2.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/bno055_i2c_ros2/bno055_i2c_ros2.html">bno055-i2c-ros2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">UiAbot Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Perception</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/src/perception.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="perception">
+<span id="id1"></span><h1>Perception<a class="headerlink" href="#perception" title="Link to this heading"></a></h1>
+<p>The concept of percetion, in the field of robotics, is to organize, identify and interpret sensor information
+in order to represent and understand the robot’s surrounding environment. This is a crucial factor in any robotic
+system that is supposed to do autonomous tasks. For a better description of the widely known see-think-act cycle, referred to as the foundation
+in all autonomous operations, it is rewritten as a <em>percept</em>-think-act cycle.</p>
+<p>The UiAbot perception system is a complex integration of
+various sensors, each of which feeds data into the ROS 2
+ecosystem for comprehensive environmental awareness. The figure below
+illustrates the connection between sensor data, ROS 2 nodes,
+and the visualization tools used to represent sensor data in
+Rviz2.</p>
+<figure class="align-center" id="id2">
+<span id="perception-perception-diagram"></span><a class="reference internal image-reference" href="../_images/perception.svg"><img alt="../_images/perception.svg" src="../_images/perception.svg" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure: Diagram illustrating the UiAbot perception system integrated with ROS 2.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The UiAbot has the following sensors installed and implemented in this project:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.cuidevices.com/product/resource/amt10.pdf/">CUI AMT102 Incremental Encoder</a></p></li>
+<li><p><a class="reference external" href="https://www.bosch-sensortec.com/products/smart-sensors/bno055//">Bosch-Sensortech BNO055 IMU</a></p></li>
+<li><p><a class="reference external" href="https://www.slamtec.com/en/Lidar/A1/">Slamtech RPLiDAR A1</a></p></li>
+</ul>
+<section id="wheel-encoders">
+<h2>Wheel Encoders<a class="headerlink" href="#wheel-encoders" title="Link to this heading"></a></h2>
+<p>The installed rotary encoders is of type <em>incremental</em>, meaning they emit pulses, or ticks, as they spin. These ticks has to be counted on a processing unit
+in order to get the encoder position. Incremental encoders are cheaper than their counterpart, <em>absolute</em> encoders, but are limited to measuring change in
+position (relative). Anyhow, for the UiAbot we use these sensors to measure actual wheel speed.</p>
+<p>The CUI AMT102 encoder has customizeable quadrature resolution up to 2048 PPR, which can be selected by the physical DIP-switches. The
+combined CPR depends on the unit that is processing the pulses from the encoder. For a quadrature encoder it is possible to get a total
+4xPPR. On our UiAbot, the encoder is set to 2048 PPR and the ODrive board maximizes this with hardware-interrupts on both <em>falling</em> and <em>rising</em>
+edges, which results in a total of 8192 CPR.</p>
+<p>The implementation of the encoder was done by extending the <code class="docutils literal notranslate"><span class="pre">odrive_ros2</span></code> node with a publisher that emits all the necessary feedback
+data (motor position and velocity). The feedback data is published with msg-type <a class="reference external" href="http://docs.ros.org/en/noetic/api/std_msgs/html/msg/Float32.html">std_msgs/Float32</a>
+on the relevant topics for each axis, as seen in figure above.</p>
+<p>To visualize wheel motion in <a class="reference external" href="https://github.com/ros2/rviz">Rviz2</a>, an URDF is created with the mesh of the UiAbot including all relevant
+frames and their pose relative to <code class="docutils literal notranslate"><span class="pre">base_link</span></code>. Furthermore, an extension to the <a class="reference internal" href="software_documentation/uiabot/mechanical_odometry.html#uiabot-pkg-mechanical-odometry"><span class="std std-ref">mechanical_odometry</span></a>
+node is added to publish the position of the two wheel joints as a <a class="reference external" href="http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/JointState.html">sensor_msgs/JointState</a> message
+on the <code class="docutils literal notranslate"><span class="pre">/joint_states</span></code> topic. Then, using the built-in <a class="reference external" href="https://github.com/ros/robot_state_publisher/tree/humble">robot_state_publisher</a> with the URDF as an
+argument, the correct transforms is automatically updated and published to the <code class="docutils literal notranslate"><span class="pre">/robot_description</span></code> topic. Additionally, the static and dynamic TF’s based on the URDF,
+is broadcasted for later usage.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">/robot_description</span></code> topic can then be subscribed to in Rviz2, which then will visualize the robot and all its frames dynamically.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/wheel_tf.gif"><img alt="../_images/wheel_tf.gif" src="../_images/wheel_tf.gif" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure: Wheel encoder visualization in Rviz2.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Command to run the <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code> node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>robot_state_publisher<span class="w"> </span>robot_state_publisher<span class="w"> </span>--ros-args<span class="w"> </span>-r<span class="w"> </span>robot_description:<span class="o">=</span>&lt;URDF<span class="w"> </span>as<span class="w"> </span>a<span class="w"> </span>string&gt;
+</pre></div>
+</div>
+<p>This node should be ran in a launch file for a correct parsing of the URDF in string format.</p>
+</div>
+</section>
+<section id="inertial-measurement-unit-imu">
+<h2>Inertial Measurement Unit (IMU)<a class="headerlink" href="#inertial-measurement-unit-imu" title="Link to this heading"></a></h2>
+<p>The IMU consists of an accelerometer, gyroscope and magnetometer. Each of the three sensors are 3-axis resulting in a total 9DOF sensor. Additionally, the
+<a class="reference external" href="https://www.bosch-sensortec.com/products/smart-sensors/bno055//">BNO055</a> has an onboard processing unit which calculates the absolute orientation of the
+sensor in 3D-space. In the UiAbot project, the IMU is used to achieve a more accurate heading measurement.</p>
+<p>There are two possible communication peripherals on the chip, UART and I²C.
+In our case, it was preferred to use the default I²C interface. There is a ROS2 package that already exists, in which implements the I²C communication
+with the IMU, but due to some calibration problems it did not perferm very well on our system. The solution was to rewrite a ROS(1) package to be usable with ROS2.
+This package was named <a class="reference internal" href="software_documentation/bno055_i2c_ros2.html#bno055-i2c-ros2-pkg"><span class="std std-ref">bno055-i2c-ros2</span></a> and has a node, equally named, that publishes the same data as the original ROS(1) node.</p>
+<p>The IMU is connected to I²C bus 1 on the jetson. Checking with command <code class="docutils literal notranslate"><span class="pre">i2cdetect</span> <span class="pre">-y</span> <span class="pre">-r</span> <span class="pre">1</span></code> should return a device with <code class="docutils literal notranslate"><span class="pre">ID=28</span></code>.</p>
+<p>As seen in the diagram on top, the used topic is the <code class="docutils literal notranslate"><span class="pre">/bno055/data</span></code>, which consists of the fused and filtered absolute data from the IMU.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Command to run the <code class="docutils literal notranslate"><span class="pre">bno055_i2c_ros2</span></code> node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>bno055_i2c_ros2<span class="w"> </span>bno055_i2c_ros2
+</pre></div>
+</div>
+</div>
+<p>Visualizing the IMU orientation was done by the creation of an additional node in the <a class="reference internal" href="software_documentation/uiabot.html#uiabot-pkg"><span class="std std-ref">uiabot-ros2</span></a> package, named <a class="reference internal" href="software_documentation/uiabot/imu_tf_viz.html#uiabot-pkg-imu-tf-viz"><span class="std std-ref">imu_tf_viz</span></a>. This node broadcasts
+the TF of an <code class="docutils literal notranslate"><span class="pre">imu</span></code> frame relative to a fixed <code class="docutils literal notranslate"><span class="pre">world</span></code> frame, which then can be seen in Rviz2.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/imu_tf.gif"><img alt="../_images/imu_tf.gif" src="../_images/imu_tf.gif" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure: IMU orientation visualization in Rviz2.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Command to run the <code class="docutils literal notranslate"><span class="pre">imu_tf_viz</span></code> node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>uiabot<span class="w"> </span>imu_tf_viz
+</pre></div>
+</div>
+<p>This node is only used during this section to visualize IMU orientation alone and is not a part of the complete system.</p>
+</div>
+</section>
+<section id="lidar">
+<h2>LiDAR<a class="headerlink" href="#lidar" title="Link to this heading"></a></h2>
+<p>In order to be able to perform localization in, as well as mapping, the robot’s environment, the UiAbot has a LiDAR from Slamtech installed. A LiDAR is a method
+for determining ranges (variable distance) by targeting an object or a surface with a laser and measuring the time for the reflected light to return to the receiver.</p>
+<p>The <a class="reference external" href="https://www.slamtec.com/en/Lidar/A1/">RPLiDAR A1</a> is a 360 degree 2D laser which is capable of measuring distances up to 12 meters. The scan rate defaults to
+5.5 Hz, which results in 8000 samples per second and an angular resolution of about 1 degree.</p>
+<figure class="align-center" id="id5">
+<img alt="../_images/rplidar_A1.png" src="../_images/rplidar_A1.png" />
+<figcaption>
+<p><span class="caption-text">Figure: RPLiDAR A1 frame configuration.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>To get the LiDAR on the ROS2 network, a package made by Slamtech is used. The package is named <a class="reference external" href="https://github.com/Slamtec/rplidar_ros/tree/ros2">rplidar_ros</a> and
+its installation instructions is stated in <span class="xref std std-ref">installation</span>. Launching the <code class="docutils literal notranslate"><span class="pre">rplidar_composition</span></code> node using the built-in launch file with default arguments,
+will publish a <a class="reference external" href="http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/LaserScan.html">sensor_msgs/LaserScan</a> message to the <code class="docutils literal notranslate"><span class="pre">/scan</span></code> topic. This message has a
+<em>frame_id</em> parameter that defaults to <code class="docutils literal notranslate"><span class="pre">bno055</span></code>. This frame is set up as a static link in the robot’s URDF using the same name. The orientation of of the
+broadcasted frame match with the figure above.</p>
+<p>The laser scan visualization in Rviz2 is done by adding a LaserScan subscriber to the <code class="docutils literal notranslate"><span class="pre">/scan</span></code> topic.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/laser_scan.gif"><img alt="../_images/laser_scan.gif" src="../_images/laser_scan.gif" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure: Laser scan visualization in Rviz2.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Command to launch the <code class="docutils literal notranslate"><span class="pre">rplidar_composition</span></code> node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>rplidar_ros<span class="w"> </span>rplidar_launch.py
+</pre></div>
+</div>
+<p>The execution of this node is integrated in custom UiAbot launch files instead of using the launch file from the <code class="docutils literal notranslate"><span class="pre">rplidar_ros</span></code> package.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="motion_control.html" class="btn btn-neutral float-left" title="Motion Control" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="localization_mapping.html" class="btn btn-neutral float-right" title="Localization and Mapping" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, University of Agder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
