@@ -1,7 +1,10 @@
 Localization and Mapping
 ========================
 
-Localization and mapping are important aspects make a robot drive autonomously. Localization is the process in which the robot estimates it's position in a given or generated map. While mapping is the process of generating a map from the current environment. 
+Localization and mapping are crucial for autonomous robot
+navigation. Localization involves estimating the robot’s position within a preexisting or concurrently generated map.
+Mapping, on the contrary, involves creating a representation of
+the environment from the robot’s sensor data.
 
 The figure below illustrates how localization and mapping is implemented by extending on the software from :ref:`perception`.
 
@@ -15,7 +18,9 @@ The figure below illustrates how localization and mapping is implemented by exte
 
 Odometry
 --------
-There are several approaches to localization, one of the most common being odometry. The odometry uses motion sensors to estimate the robot's current position in reference to an initial frame, usually refered to as the odometry- or odom-frame. Sensors on the UiAbot that can be used for odometry is: wheel encoders and IMU.
+A foundational method for localization utilizing motion sensors to estimate the robot’s position relative
+to a starting point is referred to as the odometry (odom) frame.
+UiAbot employs wheel encoders and an IMU for this purpose.
 
 Mechanical Odometry
 ^^^^^^^^^^^^^^^^^^^
@@ -38,7 +43,7 @@ The mechanical odometry is prone to drift because of small inaccuracies in the w
 
 Combining the data from the mechanical odometry and the IMU is done by using an `extended Kalman Filter <https://en.wikipedia.org/wiki/Extended_Kalman_filter>`_ (EKF). The EKF is a nonlinear version of the regular `Kalman filter <https://en.wikipedia.org/wiki/Kalman_filter>`_, and is considered to be the de facto standard in the theory of nonlinear state estimation. The Kalman filter uses a series of measurements over time to estimate unknown variables that tends to be more accurate than the measurements alone. The Kalman filter also includes statistical noise and other inaccuracies to improve its estimation. On the UiAbot we are using the ``ekf_filter_node`` node from the `robot_localization <http://docs.ros.org/en/noetic/api/robot_localization/html/state_estimation_nodes.html#ekf-localization-node>`_ library to fuse the mechanical odometry and IMU data.
 
-The ``ekf_filter_node`` node uses the parameter file ``ekf_params.yaml`` located in ``/home/jetson/uiabot_ws/src/uiabot/params/ekf_params.yaml``. This file is based on the default parameter file, which is located in ``/opt/ros/galactic/share/robot_localization/params/ekf.yaml``.
+The ``ekf_filter_node`` node uses the parameter file ``ekf_params.yaml`` located in ``/home/jetson/uiabot_ws/src/uiabot/params/ekf_params.yaml``. This file is based on the default parameter file, which is located in ``/opt/ros/humble/share/robot_localization/params/ekf.yaml``.
 
 The first parameter that is updated is the ``use_sim_time`` parameter. This decides which clock to use for synchronization. Typically this is set to ``true`` when simulating, since then all nodes should synchronize with the simulation clock. However, since we are running on the real robot, we set this parameter to ``false``.
 
@@ -126,6 +131,12 @@ Simultaneous Localization and Mapping (SLAM)
 --------------------------------------------
 
 SLAM is the process of continously creating a map of the current surroundings. For the robot to be able to create a map, it needs data that can be used for such a task, typically vision data. The UiAbot is equipped with a 2D LiDAR, which gives the robot information about the distance to objects surrounding the robot in a plane. The robot must then have to consider which objects that are less likely to move, such as walls. These objects will form the base of the map. After finding these objects in the current robot position, the robot must move to get data from the remaining of the surroundings. While moving the objects previously drawn on the map will also move, because the LiDAR will now register these as closer or further away. This is the part where the robot must localize itself relative to the already drawn map, before it can continue drawing.
+
+.. figure:: fig/slam.svg
+    :width: 500
+    :align: center
+
+    Figure: A gif showing the UiAbot performing SLAM.
 
 For this project we are using the ``slam_toolbox`` developed by Steve Macenski, which is also the default SLAM library used in Nav 2. Link to the source code `here <https://github.com/SteveMacenski/slam_toolbox>`_. The ``slam_toolbox`` updates the UiAbot ``base_link`` relative to the ``map`` frame whenever it localizes itself. This in turn corrects the ``odom`` frame. This can be seen in the Figure below, where the ``map`` and ``odom`` frame initially has the same pose. However, the ``odom`` frame drifts and is corrected over time, while the ``map`` frame is not changed.
 

@@ -12,10 +12,7 @@ This page will walk you through the required steps to get the UiAbot set up with
 Operating System
 ----------------
 
-The used OS on the jetson nano is the modifyed jetpack from `QEngineering <https://github.com/Qengineering/Jetson-Nano-Ubuntu-20-image/>`_.
-This 32GB image has ubuntu 20.04 as well as some common packages and tools for vision, machine learning, etc. It is downloaded following
-the instructions on their github page and flashed to a 64GB micro SD-card using `balena etcher <https://www.balena.io/etcher/>`_. 
-Once installed and booted on the jetson, the disk partition is expanded to utilize the full 64GB storage using `gparted <https://gparted.org/>`_.
+The operating system utilized on the Jetson Nano is a standard JetPack image installed via `NVIDIA's SDK Manager <https://developer.nvidia.com/sdk-manager>`_. This installation includes Ubuntu 22.04 along with the comprehensive NVIDIA development toolkit and essential packages for computer vision, machine learning, and artificial intelligence applications.
 
 Setting up Wi-Fi
 ----------------
@@ -68,7 +65,7 @@ Connecting to UiAbot (SSH)
 3. Use these credentials to log in.
 
     | **Username:** jetson
-    | **Password:** mas514?group5
+    | **Password:** jetson
 
 Set up ``.bashrc``
 ------------------
@@ -101,10 +98,15 @@ Set up ``.bashrc``
 Install third-party software
 ----------------------------
 
-1. Install the following third-party software.
+1. Install the following third-party software:
 
-   * ROS 2 Galactic `installation guide <https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html#ubuntu-debian>`__.
-   * odrivetool `installation guide <https://docs.odriverobotics.com/v/latest/getting-started.html#install-odrivetool>`__.
+   On Jetson:
+      * ROS 2 Humble: `Installation Guide <https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html>`__
+      * odrivetool: `Installation Guide <https://docs.odriverobotics.com/v/latest/getting-started.html#install-odrivetool>`__
+
+   On PC:
+      * ROS 2 Humble: `Installation Guide <https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html>`__ (Ubuntu 22.04 PC)
+      * ROS 2 Jazzy: `Installation Guide <https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html>`__ (Ubuntu 24.04 PC)
 
 2. Install the following third-party ROS 2 packages.
 
@@ -112,26 +114,26 @@ Install third-party software
 
        .. code:: bash
 
-           sudo apt install ros-galactic-rplidar=3.2.4-1focal.20220730.092525 -y
+           sudo apt install ros-humble-rplidar-ros -y
 
-   * ``robot_localization`` (`src <https://github.com/cra-ros-pkg/robot_localization/tree/galactic-devel>`__)
-
-       .. code:: bash
-
-           sudo apt install ros-galactic-robot-localization=2.0.2-1focal.20220730.023610 -y
-
-   * ``slam_toolbox`` (`src <https://github.com/SteveMacenski/slam_toolbox/tree/galactic>`__)
+   * ``robot_localization`` (`src <https://github.com/cra-ros-pkg/robot_localization/tree/humble-devel>`__)
 
        .. code:: bash
 
-           sudo apt install ros-galactic-slam-toolbox=2.5.1-1focal.20220730.084110 -y
+           sudo apt install ros-humble-robot-localization -y
 
-   * ``nav2`` (`src <https://github.com/ros-planning/navigation2/tree/galactic>`__)
+   * ``slam_toolbox`` (`src <https://github.com/SteveMacenski/slam_toolbox/tree/humble>`__)
 
        .. code:: bash
 
-           sudo apt install ros-galactic-navigation2=1.0.12-1focal.20220730.095919 -y
-           sudo apt install ros-galactic-nav2-bringup=1.0.12-1focal.20220730.095951 -y
+           sudo apt install ros-humble-slam-toolbox -y
+
+   * ``nav2`` (`src <https://github.com/ros-planning/navigation2/tree/humble>`__)
+
+       .. code:: bash
+
+           sudo apt install ros-humble-navigation2 -y
+           sudo apt install ros-humble-nav2-bringup -y
 
 Create workspace
 ------------------------
@@ -213,7 +215,7 @@ Build the workspace
 
     .. code:: bash
 
-        source /opt/ros/galactic/setup.bash
+        source /opt/ros/humble/setup.bash
 
 3. Build workspace.
     

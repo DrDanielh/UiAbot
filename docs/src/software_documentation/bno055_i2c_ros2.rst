@@ -9,7 +9,7 @@ bno055-i2c-ros2
 Package  bno055_i2c_ros2
 Git      `git <https://github.com/DrDanielh/bno055-i2c-ros2>`_
 Version  1.0.0 
-ROS 2    Galactic
+ROS 2    Humble
 Node(s)  bno055_i2c_ros2
 =======  =====
 

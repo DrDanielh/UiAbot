@@ -7,7 +7,7 @@ mechanical_odometry
 
 .. _ uiabot_pkg_mechanical_odometry_diagram:
 
-.. figure:: ../../fig/uiabot_pkg_mechanical_odometry.drawio.svg
+.. figure:: ../../fig/odom.svg
     :width: 1000
     :align: center
 

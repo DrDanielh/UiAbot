@@ -9,18 +9,20 @@ in order to represent and understand the robot's surrounding environment. This i
 system that is supposed to do autonomous tasks. For a better description of the widely known see-think-act cycle, referred to as the foundation
 in all autonomous operations, it is rewritten as a *percept*-think-act cycle.
 
-Furthermore, there are a variety of different sensors and algorithms to equip a mobile robot with a sufficient
-perception system. Among these are the most commonly used sensors; camera (vision), laser scanner (range), IMU (inertial),
-GPS (global position) and wheel encoders (local position). Bumbers with built in switches are also a sensor widely used for indoor
-mobile robots such as robot vacuum cleaners.
+The UiAbot perception system is a complex integration of
+various sensors, each of which feeds data into the ROS 2
+ecosystem for comprehensive environmental awareness. The figure below
+illustrates the connection between sensor data, ROS 2 nodes,
+and the visualization tools used to represent sensor data in
+Rviz2.
 
 .. _perception perception_diagram:
 
-.. figure:: fig/perception.drawio.svg
-    :width: 1000
+.. figure:: fig/perception.svg
+    :width: 500
     :align: center
 
-    Figure: Perception diagram.
+    Figure: Diagram illustrating the UiAbot perception system integrated with ROS 2.
 
 The UiAbot has the following sensors installed and implemented in this project:
 
@@ -47,7 +49,7 @@ on the relevant topics for each axis, as seen in figure above.
 To visualize wheel motion in `Rviz2 <https://github.com/ros2/rviz>`_, an URDF is created with the mesh of the UiAbot including all relevant
 frames and their pose relative to ``base_link``. Furthermore, an extension to the :ref:`uiabot_pkg mechanical_odometry`
 node is added to publish the position of the two wheel joints as a `sensor_msgs/JointState <http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/JointState.html>`_ message 
-on the ``/joint_states`` topic. Then, using the built-in `robot_state_publisher <https://github.com/ros/robot_state_publisher/tree/galactic>`_ with the URDF as an 
+on the ``/joint_states`` topic. Then, using the built-in `robot_state_publisher <https://github.com/ros/robot_state_publisher/tree/humble>`_ with the URDF as an 
 argument, the correct transforms is automatically updated and published to the ``/robot_description`` topic. Additionally, the static and dynamic TF's based on the URDF, 
 is broadcasted for later usage.
 

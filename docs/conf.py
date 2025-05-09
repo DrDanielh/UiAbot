@@ -3,7 +3,7 @@ import sys
 sys.path.insert(0, os.path.abspath('../jl'))
 
 project = 'UiAbot Documentation'
-copyright = '2024, University of Agder'
+copyright = '2025, University of Agder'
 author = 'Daniel Hagen, Martin Mæland, Tarjei Skotterud, and Martin Dahlseng Hermansen'
 release = '0.0.1'
 

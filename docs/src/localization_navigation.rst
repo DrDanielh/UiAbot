@@ -98,7 +98,7 @@ be created while navigating. When running SLAM, the localization nodes from Nav2
 Nav2 parameters
 ---------------
 The used parameter file for the Nav2 package is based on the default parameters. If the package is installed using ``apt``, as shown in :ref:`installation_setup`,
-then the default parameter file is found in ``/opt/ros/galactic/share/nav2_bringup/params/nav2_params.yml``.
+then the default parameter file is found in ``/opt/ros/humble/share/nav2_bringup/params/nav2_params.yml``.
 
 A copy of this file is placed in ``/home/jetson/uiabot_ws/src/uiabot/params/``, which then gets parsed into the launch files for both nav2 localization and navigation. The
 modified parameters is listed below.
@@ -135,3 +135,9 @@ acceleration and deceleration limits was decreased to make a more gentle start. 
 
 The local and global costmap parameters are modified with a rectangular footprint of the robot instead of the default circle. The geometry of this footprint
 is given in the ``base_link`` frame.
+
+.. figure:: fig/nav2.svg
+    :width: 500
+    :align: center
+
+    Figure: Diagram illustrating integration of Nav2.

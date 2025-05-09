@@ -7,8 +7,26 @@ Regardless of the guide, remember to always source ROS 2 and the built ``uiabot_
 
 .. code:: bash
 
-    source /opt/ros/galactic/setup.bash
+    source /opt/ros/humble/setup.bash
     source /home/jetson/uiabot_ws/install/local_setup.bash
+
+(Optinal)
+If you are using Ubuntu 24.04 on your PC, source the following setup files:
+
+.. code:: bash
+
+    source /opt/ros/jazzy/setup.bash
+
+Automatic Sourcing
+------------------
+To make the process of sourcing the ROS 2 and workspace setup files easier, you can add the commands to your shell configuration file.
+This will ensure that the required environments are sourced automatically.
+
+.. code:: bash
+
+    echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+    echo "source /home/jetson/uiabot_ws/install/local_setup.bash" >> ~/.bashrc
+    source ~/.bashrc
 
 Driving remotely with keyboard
 ------------------------------
@@ -51,7 +69,7 @@ This guide launches all nodes required to drive the UiAbot remotely using the pc
     .. code:: bash
 
         export ROS_DOMAIN_ID=5
-        rviz2
+        rviz2 -d ~/.rviz2/mech_odom.rviz
 
 SLAM
 ----
@@ -77,6 +95,13 @@ This guide launches all nodes required to drive the UiAbot remotely using the pc
 
         export ROS_DOMAIN_ID=5
         ros2 launch nav2_bringup rviz_launch.py
+    
+    If you are using Ubuntu 24.04, run the following command instead:
+
+    .. code:: bash
+
+        export ROS_DOMAIN_ID=5
+        rviz2 -d ~/.rviz2/SLAM.rviz
 
 4. When you are finished mapping, run the following command to save the map on **jetson**.
 

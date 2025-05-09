@@ -7,7 +7,7 @@ control
 
 .. _uiabot_pkg control_diagram:
 
-.. figure:: ../../fig/uiabot_pkg_control.drawio.svg
+.. figure:: ../../fig/control-node.svg
     :width: 1000
     :align: center
 

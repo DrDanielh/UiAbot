@@ -1,2 +1,20 @@
 .vscode
 docs/_build
+
+# Byte-compiled / cache files
+__pycache__/
+*.pyc
+
+# Virtual environment
+uiabot_env/
+
+# Sphinx build
+_build/
+build/
+
+# OS-generated files
+.DS_Store
+
+# Editor/IDE config
+.vscode/
+.idea/
