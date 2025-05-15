@@ -7,12 +7,12 @@ Welcome to the UiAbot documentation!
 
    UiAbot AMR platform.
 
-Content
+Table of Content
 --------------
 
 .. toctree::
    :maxdepth: 3
-   :caption: Get Started:
+   :caption: Getting Started:
 
    src/Overview
    src/installation
