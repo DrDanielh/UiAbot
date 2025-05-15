@@ -7,13 +7,16 @@ This page will walk you through the required steps to get the UiAbot set up with
 
     It is important to follow each step carefully to avoid compatability problems later, and to understand the commands.
 
-Operating System
+NVIDIA Jetson SBC
 ----------------
+
+Operating System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The operating system utilized on the Jetson Nano is a standard JetPack image installed via `NVIDIA's SDK Manager <https://developer.nvidia.com/sdk-manager>`_. This installation includes Ubuntu 22.04 along with the comprehensive NVIDIA development toolkit and essential packages for computer vision, machine learning, and artificial intelligence applications.
 
 Setting up Wi-Fi
-----------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Turn the UiAbot on, and connect to keyboard, mouse, and monitor.
 2. On the **jetson** log in to the desired wi-fi, and check if your internet connection.
@@ -50,8 +53,12 @@ Setting up Wi-Fi
                                                
 4. Now, unplug the keyboard, mouse, and monitor.
 
+Remote PC
+----------------
+Its recomended to use a Ubuntu 22.04 operating system with ROS 2 Humble installed. The installation guide can be found `here <https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html>`__.
+
 Connecting to UiAbot (SSH)
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. On your **pc**, make sure you are on the same wi-fi as the UiAbot from the previous section.
 2. Connect to the UiAbot with SSH.
@@ -65,8 +72,11 @@ Connecting to UiAbot (SSH)
     | **Username:** jetson
     | **Password:** jetson
 
+Automatic Sourcing
+----------------
+
 Set up ``.bashrc`` on UiAbot
------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Add usb access.
    
@@ -100,7 +110,7 @@ Set up ``.bashrc`` on UiAbot
         source /home/jetson/.bashrc
 
 Set up ``.bashrc`` on Remote PC
-----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Automatic Sourcing:
 To make the process of sourcing the ROS 2 and workspace setup files easier, you can add the commands to your shell configuration file. This will ensure that the required environments are sourced automatically.
@@ -113,18 +123,16 @@ To make the process of sourcing the ROS 2 and workspace setup files easier, you 
         echo "export ROS_DOMAIN_ID=5" >> ~/.bashrc # Or use the uiabot # you have!
         source ~/.bashrc 
 
-
-
 Install third-party software
 ----------------------------
 
 1. Install the following third-party software:
 
-   On Jetson:
+   On UiAbot:
       * ROS 2 Humble: `Installation Guide <https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html>`__
       * odrivetool: `Installation Guide <https://docs.odriverobotics.com/v/latest/getting-started.html#install-odrivetool>`__
 
-   On PC:
+   On Remote PC:
       * ROS 2 Humble: `Installation Guide <https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html>`__ (Ubuntu 22.04 PC)
       
 2. Install the following third-party ROS 2 packages.
@@ -161,8 +169,11 @@ Install third-party software
             sudo apt install ros-humble-xacro
             sudo apt install ros-humble-teleop-twist-joy ros-humble-joy
 
-Create workspace
+ROS 2 configuration
 ------------------------
+
+Create workspace
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Create a workspace in the home folder and call it ``uiabot_ws``.
 
@@ -184,7 +195,7 @@ The ``jetson`` directory should now look like this.
             └── src   <-- all our ROS 2 packages goes here  
 
 Install developed software
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Enter the workspace ``src`` directory.
 
@@ -230,7 +241,7 @@ The ``src`` directory should now look like this.
         └── uiabot-ros2
 
 Build the workspace
--------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Return to the workspace root. 
 
@@ -266,8 +277,8 @@ Configuration
 
     .. code-block:: bash
 
-        odrv0.axis0.motor.config.current_lim = 10
-        odrv0.axis1.motor.config.current_lim = 10
+    odrv0.axis0.motor.config.current_lim = 10
+    odrv0.axis1.motor.config.current_lim = 10
 
 3. Velocity limit
 
@@ -325,7 +336,6 @@ Configuration
 
 Testing and Troubleshooting
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 1. Request closed-loop control
 
     .. code-block:: bash
@@ -344,7 +354,7 @@ Testing and Troubleshooting
 
         dump_errors(odrv0)
 
-3. Clear errors
+3.Clear errors
 
     .. code-block:: bash
 
