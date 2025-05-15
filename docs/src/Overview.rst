@@ -18,7 +18,7 @@ The UiAbot was designed with a focus on flexibility and ease of integration, sup
 The UiAbot system architecture incorporates a 3D-printed chassis design for enhanced modularity along with a robust drive, power, and perception system, as shown below. 
 
 .. figure:: fig/Schematic.svg
-    :width: 600
+    :width: 500
     :align: center
 
     Figure: Schematic overview of the UiAbot systems architecture.
