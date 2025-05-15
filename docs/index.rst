@@ -8,11 +8,12 @@ Welcome to the UiAbot documentation!
    UiAbot AMR platform.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Introduction:
 
    src/project_description
    src/installation
+   src/configuring_odrive
 
 .. toctree::
    :maxdepth: 2
@@ -22,16 +23,16 @@ Welcome to the UiAbot documentation!
    src/perception
    src/localization_mapping
    src/localization_navigation
-   src/conclusion
 
 .. toctree::
    :maxdepth: 2
    :caption: Software and Guides:
 
-   src/guides
+   src/troubleshooting
+   src/tftree
    src/software_documentation
 
-**Publication:** This work has been published in `IEEE ICIEA 2024 <https://ieeexplore.ieee.org/document/10664856>`_. To cite, please use the following BibTeX:
+**Publication:** This work has been published in IEEE ICIEA 2024 <https://ieeexplore.ieee.org/document/10664856>_. To cite, please use the following BibTeX:
 
 .. code-block:: bibtex
 

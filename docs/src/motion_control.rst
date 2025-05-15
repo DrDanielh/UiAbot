@@ -58,13 +58,6 @@ the figure below.
     Figure: Definition of the robot’s local coordinate system for kinematic analysis.
 
 Each wheel has the linear velocities :math:`\dot{x_r}` and :math:`\dot{x_l}`, corresponding to right and left wheels, respectively. As shown in the figure below, the wheel angular velocity is denoted by :math:`\dot{\phi}`, and wheel radius by :math:`r`.
-
-.. figure:: fig/kinematics/wheel_figure.svg
-    :width: 250
-    :align: center 
-
-    Figure: Wheel definition.
-
 The linear velocities for the wheels can be written as.
 
 .. math::
@@ -179,3 +172,41 @@ On the uiabot, the motors are driven by a ODrive controller board, which is conn
         ros2 run odrive_ros2 odrive_ros2 
 
 
+Driving remotely with keyboard
+------------------------------
+
+This guide launches all nodes required to drive the UiAbot remotely using the pc keyboard.
+
+1. Run the following command on the **jetson** to launch the ``control`` and ``odrive_ros2`` nodes:
+
+    .. code:: bash
+
+        ros2 launch uiabot teleop.launch.py
+
+2. Run the following command on the **pc** to launch the ``teleop_twist_keyboard`` node:
+
+    .. code:: bash
+
+        export ROS_DOMAIN_ID=5
+        ros2 run teleop_twist_keyboard teleop_twist_keyboard
+
+ 
+Driving remotely with Game Controller
+--------------------------------------
+
+This guide launches all nodes required to drive the UiAbot remotely using the game controller
+
+1. Run the following command on the **jetson** to launch the ``control`` and ``odrive_ros2`` nodes:
+
+    .. code:: bash
+
+        ros2 launch uiabot teleop.launch.py
+
+2. Run the following command on the **jetson** to launch the ``teleop_twist_keyboard`` node:
+
+    .. code:: bash
+
+        export CONFIG_PATH=/home/jetson/shanwan_gamepad_config.yaml # export CONFIG_PATH=/path/to/your/config.yml
+        export ROS_DOMAIN_ID=5
+        ros2 launch teleop_twist_joy teleop-launch.py joy_config_file:=$CONFIG_PATH
+        

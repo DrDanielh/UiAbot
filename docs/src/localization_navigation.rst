@@ -141,3 +141,39 @@ is given in the ``base_link`` frame.
     :align: center
 
     Figure: Diagram illustrating integration of Nav2.
+
+Localization and navigation
+---------------------------
+
+This guide launches all nodes required to drive the UiAbot using nav2 in an existing map.
+
+1. Run the following command on the **jetson** to launch the control, sensor, localization, and navigation nodes. Remember to update the map path to match your map:
+
+    .. code:: bash
+
+        ros2 launch uiabot localization_navigation.launch.py map_path:=/home/jetson/uiabot_ws/src/uiabot/map/map_mezzanine.yaml
+
+2. Run the following command on the **pc** to launch RViz with map visualization:
+
+    .. code:: bash
+
+        export ROS_DOMAIN_ID=5
+        ros2 launch nav2_bringup rviz_launch.py
+
+SLAM and navigation
+-------------------
+
+This guide launches all nodes required to drive the UiAbot using nav2 in while performing SLAM.
+
+1. Run the following command on the **jetson** to launch the control, sensor, SLAM and navigation nodes:
+
+    .. code:: bash
+
+        ros2 launch uiabot slam_navigation.launch.py
+
+2. Run the following command on the **pc** to launch RViz with map visualization:
+
+    .. code:: bash
+
+        export ROS_DOMAIN_ID=5
+        ros2 launch nav2_bringup rviz_launch.py
