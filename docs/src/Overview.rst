@@ -7,7 +7,7 @@ The initial Single Board Computer (SBC) setup, which used the NVIDIA Jetson Nano
     
 System Overview
 --------------
-The UiAbot was designed with a focus on flexibility and ease of integration, supporting ROS 2, robotic manipulators, and SBCs like Raspberry Pi and NVIDIA Jetson. It includes sensors such as cameras, encoders, LiDARs, and IMUs for enhanced perception. As shown in Fig. 1, the default setup features an NVIDIA Jetson Nano (1), wheel encoders, a LiDAR (2), and an IMU (3), enabling autonomous navigation. The chassis (4), inspired by TurtleBot3’s modular 'waffle plate' design, uses four full and two half-waffle plates. Structural support comes from the front motor-encoder-gearbox assembly (5) and rear spherical support wheels (6). The left side plate (7) contains the power button, battery status indicator, and charging port, while the right side plate (8) includes an emergency stop button for safety.
+The UiAbot was designed with a focus on flexibility and ease of integration, supporting ROS 2, robotic manipulators, and SBCs like Raspberry Pi and NVIDIA Jetson. It includes sensors such as cameras, encoders, LiDARs, and IMUs for enhanced perception. As shown in the figure below, the default setup features an NVIDIA Jetson Nano (1), wheel encoders, a LiDAR (2), and an IMU (3), enabling autonomous navigation. The chassis (4), inspired by TurtleBot3’s modular 'waffle plate' design, uses four full and two half-waffle plates. Structural support comes from the front motor-encoder-gearbox assembly (5) and rear spherical support wheels (6). The left side plate (7) contains the power button, battery status indicator, and charging port, while the right side plate (8) includes an emergency stop button for safety.
 
 .. figure:: fig/uiabot.svg
     :width: 800
@@ -15,7 +15,7 @@ The UiAbot was designed with a focus on flexibility and ease of integration, sup
 
     Figure: The UiAbot with its default AMR setup, equipped with an SBC (1), a spinning LiDAR (2), and an IMU (3).
 
-The UiAbot system architecture incorporates a 3D-printed chassis design for enhanced modularity along with a robust drive, power, and perception system, as shown below. 
+The UiAbot system architecture incorporates a 3D-printed chassis design for enhanced modularity along with a robust drive, power, and perception system, as shown in the figure below. 
 
 .. figure:: fig/Schematic.svg
     :width: 600
@@ -32,7 +32,7 @@ The complete UiAbot software can perform autonomous navigation using both the pr
 static map, as well as do its own mapping of the environment. It proves that a autonomous mobile robot does not have to use
 expensive sensors and computational hardware. The Nav2 software stack is virtually plug-and-play.
 
-The diagram below describes the communication flow if everything was to be launched together. It does not show the actual 
+The diagram in the figure below describes the communication flow if everything was to be launched together. It does not show the actual 
 message flow between all nodes due to its complexity with the numerous nodes that Nav2 launches.
 
 .. figure:: fig/system_architecture.drawio.svg
@@ -41,7 +41,7 @@ message flow between all nodes due to its complexity with the numerous nodes tha
     
     Figure: System communication diagram.
 
-Additionally, an overview of the TF tree is shown below. The ``base_link`` and ``base_footprint`` is basically the same frame with
+Additionally, an overview of the TF tree is shown in the figure below. The ``base_link`` and ``base_footprint`` is basically the same frame with
 different names. The reason for having both is because there are differences of what TF some of the 3rd party packages uses as the
 reference for the robot relative to ``odom`` and ``map`` frames.
 
