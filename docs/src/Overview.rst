@@ -35,7 +35,7 @@ The project has been an educational and fun way to learn more about autonomous s
 ``nav2_params.yaml`` file in order to make the velocity controller a little bit more smooth.
 
 .. figure:: fig/tf.drawio.svg
-    :width: 1000
+    :width: 600
     :align: center
 
     Figure: System tf2 diagram.
