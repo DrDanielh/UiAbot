@@ -1,5 +1,3 @@
-.. _installation_setup:
-
 Installation and Setup
 ======================
 
@@ -67,8 +65,8 @@ Connecting to UiAbot (SSH)
     | **Username:** jetson
     | **Password:** jetson
 
-Set up ``.bashrc``
-------------------
+Set up ``.bashrc`` on UiAbot
+-----------------------------
 
 1. Add usb access.
    
@@ -76,11 +74,11 @@ Set up ``.bashrc``
 
         echo "sudo chmod 666 /dev/ttyUSB0" >> /home/jetson/.bashrc
 
-2. Add ``ROS_DOMAIN_ID``. Change ``5`` to your group number, if applicable. Remember this variable.
+2. Add ``ROS_DOMAIN_ID``. Change ``5`` to your uiabot number,
 
     .. code:: bash
 
-        echo "export ROS_DOMAIN_ID=5" >> /home/jetson/.bashrc
+        echo "export ROS_DOMAIN_ID=5" >> /home/jetson/.bashrc # Or use the uiabot # you have!
 
 3. Install and add ``sl``.
 
@@ -88,11 +86,33 @@ Set up ``.bashrc``
 
         sudo apt install sl -y && echo "sl" >> /home/jetson/.bashrc
 
-4. Source to update changes.
+4. Automatic Sourcing:
+
+    .. code:: bash
+
+        echo "source /home/jetson/uiabot_ws/install/local_setup.bash" >> ~/.bashrc
+        echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+
+5. Source to update changes.
 
     .. code:: bash
 
         source /home/jetson/.bashrc
+
+Set up ``.bashrc`` on Remote PC
+----------------------------------
+
+Automatic Sourcing:
+To make the process of sourcing the ROS 2 and workspace setup files easier, you can add the commands to your shell configuration file. This will ensure that the required environments are sourced automatically.
+   
+    .. code:: bash
+
+        echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+        echo "source ~/uiabot_ws/install/setup.bash" >> ~/.bashrc
+        echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> ~/.bashrc
+        echo "export ROS_DOMAIN_ID=5" >> ~/.bashrc # Or use the uiabot # you have!
+        source ~/.bashrc 
+
 
 
 Install third-party software
@@ -106,8 +126,7 @@ Install third-party software
 
    On PC:
       * ROS 2 Humble: `Installation Guide <https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html>`__ (Ubuntu 22.04 PC)
-      * ROS 2 Jazzy: `Installation Guide <https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html>`__ (Ubuntu 24.04 PC)
-
+      
 2. Install the following third-party ROS 2 packages.
 
    * ``rplidar_ros`` (`src <https://github.com/Slamtec/rplidar_ros/tree/ros2>`__)
@@ -134,6 +153,13 @@ Install third-party software
 
            sudo apt install ros-humble-navigation2 -y
            sudo apt install ros-humble-nav2-bringup -y
+
+   * ``Other dependencies``
+
+       .. code:: bash
+
+            sudo apt install ros-humble-xacro
+            sudo apt install ros-humble-teleop-twist-joy ros-humble-joy
 
 Create workspace
 ------------------------

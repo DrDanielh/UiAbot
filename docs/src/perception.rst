@@ -147,3 +147,29 @@ The laser scan visualization in Rviz2 is done by adding a LaserScan subscriber t
         ros2 launch rplidar_ros rplidar_launch.py
     
     The execution of this node is integrated in custom UiAbot launch files instead of using the launch file from the ``rplidar_ros`` package.
+
+Visualizing mechanical odometry, LiDAR, and IMU
+-----------------------------------------------
+
+This guide launches all nodes required to drive the UiAbot remotely using the pc keyboard, in addition to the sensor nodes for the LiDAR and IMU. It also launches the mechanical odometry node which calculates the robot position relative to the intial frame. The robot description is also published to the network, which enables the visualization in RViz.
+
+1. Run the following command on the **jetson** to launch the control and sensor nodes:
+
+    .. code:: bash
+
+        ros2 launch uiabot teleop_perception.launch.py
+
+2. Run the following command on the **pc** to launch the ``teleop_twist_keyboard`` node:
+
+    .. code:: bash
+
+        export ROS_DOMAIN_ID=5
+        ros2 run teleop_twist_keyboard teleop_twist_keyboard
+
+3. Run the following command on the **pc** to launch RViz:
+
+    .. code:: bash
+
+        export ROS_DOMAIN_ID=5
+        rviz2 -d ~/.rviz2/mech_odom.rviz
+

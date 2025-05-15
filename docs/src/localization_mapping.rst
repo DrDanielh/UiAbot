@@ -152,3 +152,41 @@ For this project we are using the ``slam_toolbox`` developed by Steve Macenski, 
     .. code-block:: bash
 
         ros2 launch slam_toolbox online_async_launch.py
+
+SLAM
+----
+
+This guide launches all nodes required to drive the UiAbot remotely using the pc keyboard, and performing SLAM.
+
+1. Run the following command on the **jetson** to launch the control, sensor, and SLAM nodes:
+
+    .. code:: bash
+
+        ros2 launch uiabot teleop_slam.launch.py
+
+2. Run the following command on the **pc** to launch the ``teleop_twist_keyboard`` node:
+
+    .. code:: bash
+
+        export ROS_DOMAIN_ID=5
+        ros2 run teleop_twist_keyboard teleop_twist_keyboard
+
+3. Run the following command on the **pc** to launch RViz with map visualization:
+
+    .. code:: bash
+
+        export ROS_DOMAIN_ID=5
+        ros2 launch nav2_bringup rviz_launch.py
+    
+    If you are using Ubuntu 24.04, run the following command instead:
+
+    .. code:: bash
+
+        export ROS_DOMAIN_ID=5
+        rviz2 -d ~/.rviz2/SLAM.rviz
+
+4. When you are finished mapping, run the following command to save the map on **jetson**.
+
+    .. code:: bash
+
+        ros2 run nav2_map_server map_saver_cli -f /home/jetson/uiabot_ws/src/uiabot/map/<map_name>
