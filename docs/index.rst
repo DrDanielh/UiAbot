@@ -9,7 +9,7 @@ Welcome to the UiAbot documentation!
 
 .. toctree::
    :maxdepth: 3
-   :caption: Introduction:
+   :caption: Preliminaries:
 
    src/Overview
    src/installation
@@ -17,7 +17,7 @@ Welcome to the UiAbot documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Implementation:
+   :caption: Implementation and Testing:
 
    src/motion_control
    src/perception

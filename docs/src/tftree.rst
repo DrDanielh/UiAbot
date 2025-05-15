@@ -1,7 +1,7 @@
-System Architecture
+Software Architecture
 ======================
 
-The system on the UiAbot can perform autonomous navigation using both the pre-generated
+The complete UiAbot software can perform autonomous navigation using both the pre-generated
 static map, as well as do its own mapping of the environment. It proves that a autonomous mobile robot does not have to use
 expensive sensors and computational hardware. The Nav2 software stack is virtually plug-and-play.
 

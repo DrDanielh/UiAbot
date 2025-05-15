@@ -1,6 +1,6 @@
 :tocdepth: 2
 
-Localization and Navigation
+Autonomous Navigation
 ==============================
 The main goal of the project is to make the UiAbot move autonomously from point A to point B, while dynamically avoid obstacles along the path.
 To achieve this goal we have implemented the `Nav2 <https://navigation.ros.org/>`_ software stack. This includes a lot of sub-packages
