@@ -13,7 +13,6 @@ Welcome to the UiAbot documentation!
 
    src/Overview
    src/installation
-   src/configuring_odrive
 
 .. toctree::
    :maxdepth: 2
