@@ -26,7 +26,7 @@ Welcome to the UiAbot documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Software and Guides:
+   :caption: More Information:
 
    src/troubleshooting
    src/tftree
