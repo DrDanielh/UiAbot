@@ -1,17 +1,15 @@
 Overview
 ===================
 
-This is the main documentation for the UiAbot project at University of Agder (UiA). The goal is to drive a mobile robot autonomously using the ROS 2 robotics framework. This documentation gives a brief introduction to several topics related to robotics and instrumentation, including motion control, perception, localization and mapping, and motion planning and navigation.
+This is the main documentation for the UiAbot Autonomous Mobile Robot (AMR) platform developed at the University of Agder (UiA). The goal of the UiAbot is to introduce STEM students to programming, implementing, and autonomously driving a mobile robot using the Robotic Operating System framework (ROS 2). This documentation provides a brief introduction to several topics related to autonomous robotics, including motion control, perception, localization and mapping (SLAM), and motion planning and navigation.
 
-The Jetson Nano setup has been upgraded to a Jetson Orin Nano running Ubuntu 22.04 with ROS 2 Humble. This upgrade enhances performance and enables support for advanced features, benefiting tasks such as data processing and sensor integration.
-
-*Supervisor*: `Daniel Hagen <https://www.uia.no/en/kk/profile/danielh>`_
+The initial Single Board Computer (SBC) setup, which used the NVIDIA Jetson Nano running Ubuntu 20.04 (Jetpack 5) with ROS 2 Galactic, has been upgraded to a Jetson Orin Nano running Ubuntu 22.04 (Jetpack 6) with ROS 2 Humble. This upgrade enhances performance and enables support for advanced features, benefiting tasks such as data processing and sensor integration.
 
 .. figure:: fig/uiabot.svg
     :width: 800
     :align: center
 
-    Figure: The UiAbot with its default AMR setup equipped with an SBC (1), a spinning LiDAR (2), and an IMU (3)
+    Figure: The UiAbot with its default AMR setup, equipped with an SBC (1), a spinning LiDAR (2), and an IMU (3).
     
 Design
 --------------
@@ -19,4 +17,4 @@ The UiAbot was designed with a focus on flexibility and ease of integration, sup
 
 Acknowledgment
 --------------
-Inspired by Turtlebot3, Prof. Dr. Daniel Hagen developed the UiAbot from 2021 to 2022 in collaboration with Mechatronics students. Funding for the necessary equipment and development of this mobile robot platform was generously provided by the Mechatronics Section at the University of Agder.    
+Inspired by TurtleBot3, Prof. Dr. `Daniel Hagen <https://www.uia.no/en/kk/profile/danielh>`_ developed the UiAbot from 2021 to 2022 in collaboration with Mechatronics students. Funding for the necessary equipment and the development of this mobile robot platform was generously provided by the Mechatronics Section at the University of Agder.
