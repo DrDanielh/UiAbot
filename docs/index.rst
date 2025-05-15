@@ -7,32 +7,6 @@ Welcome to the UiAbot documentation!
 
    UiAbot AMR platform.
 
-Table of Content
---------------
-
-.. toctree::
-   :maxdepth: 3
-   :caption: Getting Started:
-
-   src/Overview
-   src/installation
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Implementation and Testing:
-
-   src/motion_control
-   src/perception
-   src/localization_mapping
-   src/localization_navigation
-
-.. toctree::
-   :maxdepth: 2
-   :caption: More Information:
-
-   src/troubleshooting
-   src/software_documentation
-
 Acknowledgment
 --------------
 Inspired by TurtleBot3, Prof. Dr. `Daniel Hagen <https://www.uia.no/en/kk/profile/danielh>`_ developed the UiAbot from 2021 to 2022 in collaboration with Mechatronics students. Funding for the necessary equipment and the development of this mobile robot platform was generously provided by the Mechatronics Section at the University of Agder.   
@@ -48,3 +22,29 @@ Inspired by TurtleBot3, Prof. Dr. `Daniel Hagen <https://www.uia.no/en/kk/profil
      year={2024},
      pages={1-8},
      doi={10.1109/ICIEA61579.2024.10664856}}
+
+.. toctree::
+   :hidden:
+   :maxdepth: 3
+   :caption: Getting Started:
+
+   src/Overview
+   src/installation
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: Implementation and Testing:
+
+   src/motion_control
+   src/perception
+   src/localization_mapping
+   src/localization_navigation
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :caption: More Information:
+
+   src/troubleshooting
+   src/software_documentation
