@@ -23,7 +23,7 @@ The UiAbot system architecture incorporates a 3D-printed chassis design for enha
 
     Figure: Schematic overview of the UiAbot systems architecture.
 
-    For more details about the platform design, please refer to the UiAbot paper, which provides an in-depth explanation of the system's architecture, hardware components, and software integration. The paper is available at: `UiAbot paper <https://ieeexplore.ieee.org/document/10664856>`_.
+For more details about the platform design, please refer to the UiAbot paper, which provides an in-depth explanation of the system's architecture, hardware components, and software integration. The paper is available at: `UiAbot paper <https://ieeexplore.ieee.org/document/10664856>`_.
 
 Software Architecture
 --------------
