@@ -11,7 +11,7 @@ Acknowledgment
 --------------
 Inspired by TurtleBot3, Prof. Dr. `Daniel Hagen <https://www.uia.no/en/kk/profile/danielh>`_ developed the UiAbot from 2021 to 2022 in collaboration with Mechatronics students. Funding for the necessary equipment and the development of this mobile robot platform was generously provided by the Mechatronics Section at the University of Agder.   
 
-**Publication:** This work has been published in IEEE ICIEA 2024 <https://ieeexplore.ieee.org/document/10664856>_. To cite, please use the following BibTeX:
+**Publication:** This work has been published in `IEEE ICIEA 2024 <https://ieeexplore.ieee.org/document/10664856>`_. To cite, please use the following BibTeX:
 
 .. code-block:: bibtex
 
