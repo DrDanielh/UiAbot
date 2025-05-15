@@ -266,8 +266,8 @@ Configuration
 
     .. code-block:: bash
 
-    odrv0.axis0.motor.config.current_lim = 10
-    odrv0.axis1.motor.config.current_lim = 10
+        odrv0.axis0.motor.config.current_lim = 10
+        odrv0.axis1.motor.config.current_lim = 10
 
 3. Velocity limit
 
