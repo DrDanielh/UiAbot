@@ -43,7 +43,3 @@ The project has been an educational and fun way to learn more about autonomous s
 Additionally, an overview of the TF tree is shown above. The ``base_link`` and ``base_footprint`` is basically the same frame with
 different names. The reason for having both is because there are differences of what TF some of the 3rd party packages uses as the
 reference for the robot relative to ``odom`` and ``map`` frames.
-
-Acknowledgment
---------------
-Inspired by TurtleBot3, Prof. Dr. `Daniel Hagen <https://www.uia.no/en/kk/profile/danielh>`_ developed the UiAbot from 2021 to 2022 in collaboration with Mechatronics students. Funding for the necessary equipment and the development of this mobile robot platform was generously provided by the Mechatronics Section at the University of Agder.
