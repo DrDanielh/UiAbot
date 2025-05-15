@@ -51,4 +51,4 @@ reference for the robot relative to ``odom`` and ``map`` frames.
 
     Figure: Detailed view of the UiAbot´s TF tree.
 
-Detailed step-by-step implementation of the UiAbot software is described in the Testing and Implementation section. 
+Detailed step-by-step implementation of the UiAbot software is described in the Implementation and testing section. 
