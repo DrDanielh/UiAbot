@@ -18,7 +18,7 @@ The UiAbot was designed with a focus on flexibility and ease of integration, sup
 The UiAbot system architecture incorporates a 3D-printed chassis design for enhanced modularity along with a robust drive, power, and perception system, as shown below. 
 
 .. figure:: fig/Schematic.svg
-    :width: 500
+    :width: 550
     :align: center
 
     Figure: Schematic overview of the UiAbot systems architecture.
@@ -46,7 +46,7 @@ different names. The reason for having both is because there are differences of 
 reference for the robot relative to ``odom`` and ``map`` frames.
 
 .. figure:: fig/tf_tree.svg
-    :width: 600
+    :width: 650
     :align: center
 
     Figure: Detailed view of the UiAbot´s TF tree.
