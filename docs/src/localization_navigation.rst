@@ -15,7 +15,7 @@ messages to the ``/cmd_vel`` topic to close the loop.
     :width: 1000
     :align: center
 
-    Figure: Motion Planning and Navigation diagram.
+    Figure: Autonomous navigation diagram.
 
 The Nav2 stack has tools to:
 
