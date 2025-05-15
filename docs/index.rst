@@ -9,7 +9,7 @@ Welcome to the UiAbot documentation!
 
 .. toctree::
    :maxdepth: 3
-   :caption: Preliminaries:
+   :caption: Get Started:
 
    src/Overview
    src/installation
@@ -29,7 +29,6 @@ Welcome to the UiAbot documentation!
    :caption: More Information:
 
    src/troubleshooting
-   src/tftree
    src/software_documentation
 
 **Publication:** This work has been published in IEEE ICIEA 2024 <https://ieeexplore.ieee.org/document/10664856>_. To cite, please use the following BibTeX:
