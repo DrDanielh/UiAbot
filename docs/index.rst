@@ -11,7 +11,7 @@ Welcome to the UiAbot documentation!
    :maxdepth: 3
    :caption: Introduction:
 
-   src/project_description
+   src/Overview
    src/installation
    src/configuring_odrive
 
