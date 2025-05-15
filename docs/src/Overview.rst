@@ -18,7 +18,7 @@ The UiAbot was designed with a focus on flexibility and ease of integration, sup
 The UiAbot system architecture incorporates a 3D-printed chassis design for enhanced modularity along with a robust drive, power, and perception system, as shown below. 
 
 .. figure:: fig/Schematic.svg
-    :width: 800
+    :width: 600
     :align: center
 
     Figure: Schematic overview of the UiAbot systems architecture.
@@ -45,13 +45,10 @@ Additionally, an overview of the TF tree is shown below. The ``base_link`` and `
 different names. The reason for having both is because there are differences of what TF some of the 3rd party packages uses as the
 reference for the robot relative to ``odom`` and ``map`` frames.
 
-.. figure:: fig/tf.drawio.svg
+.. figure:: fig/tf_tree.svg
     :width: 600
     :align: center
 
-    Figure: System tf2 diagram.
+    Figure: Detailed view of the UiAbot´s TF tree.
 
-    """
-    Detailed step-by-step implementation of the UiAbot software is described in the 
-    Testing and Implementation section. 
-    """
+Detailed step-by-step implementation of the UiAbot software is described in the Testing and Implementation section. 
