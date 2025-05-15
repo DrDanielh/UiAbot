@@ -142,7 +142,7 @@ is given in the ``base_link`` frame.
 
     Figure: Diagram illustrating integration of Nav2.
 
-Nav2 with AMCL
+Run Nav2 with AMCL
 ---------------------------
 
 This guide launches all nodes required to drive the UiAbot using nav2 in an existing map.
@@ -160,7 +160,7 @@ This guide launches all nodes required to drive the UiAbot using nav2 in an exis
         export ROS_DOMAIN_ID=5
         ros2 launch nav2_bringup rviz_launch.py
 
-Nav2 with SLAM
+Run Nav2 with SLAM
 -------------------
 
 This guide launches all nodes required to drive the UiAbot using nav2 in while performing SLAM.
