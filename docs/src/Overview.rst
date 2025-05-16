@@ -5,7 +5,7 @@ This is the main documentation for the UiAbot Autonomous Mobile Robot (AMR) plat
 
 At the core of autonomous robotics lies the **SENSE-THINK-ACT** cycle, which is fundamental to how robots perceive, process, and respond to their environment, as illustrated in the figure below.
 
-.. figure:: fig/sense_think_act.svg
+.. figure:: fig/sense_think_act.png
     :width: 600
     :align: center
 
@@ -23,7 +23,7 @@ The UiAbot was designed with a focus on flexibility and ease of integration, sup
 
 The UiAbot system architecture incorporates a 3D-printed chassis design for enhanced modularity along with a robust drive, power, and perception system, as shown in the figure below. 
 
-.. figure:: fig/Schematic.svg
+.. figure:: fig/Schematic.png
     :width: 600
     :align: center
 
@@ -53,7 +53,7 @@ Additionally, an overview of the TF tree is shown in the figure below. The ``bas
 different names. The reason for having both is because there are differences of what TF some of the 3rd party packages uses as the
 reference for the robot relative to ``odom`` and ``map`` frames.
 
-.. figure:: fig/tf_tree.svg
+.. figure:: fig/tf_tree.png
     :width: 650
     :align: center
 
