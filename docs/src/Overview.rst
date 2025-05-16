@@ -5,11 +5,11 @@ This is the main documentation for the UiAbot Autonomous Mobile Robot (AMR) plat
 
 At the core of autonomous robotics lies the **SENSE-THINK-ACT** cycle, which is fundamental to how robots perceive, process, and respond to their environment, as illustrated in the figure below.
 
-.. figure:: fig/sens_think_act.svg
+.. figure:: fig/sense_think_act.svg
     :width: 600
     :align: center
 
-    Figure: The UiAbot with its default AMR setup, equipped with an SBC (1), a spinning LiDAR (2), and an IMU (3).
+    Figure: The SENSE-THINK-ACT cycle, illustrating how robots perceive, process, and respond to their environment.
 
 System Overview
 --------------
