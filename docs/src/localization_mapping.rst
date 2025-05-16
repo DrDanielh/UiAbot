@@ -176,13 +176,6 @@ This guide launches all nodes required to drive the UiAbot remotely using the pc
     .. code:: bash
 
         export ROS_DOMAIN_ID=5
-        ros2 launch nav2_bringup rviz_launch.py
-    
-    If you are using Ubuntu 24.04, run the following command instead:
-
-    .. code:: bash
-
-        export ROS_DOMAIN_ID=5
         rviz2 -d ~/.rviz2/SLAM.rviz
 
 4. When you are finished mapping, run the following command to save the map on **jetson**.
