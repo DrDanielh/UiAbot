@@ -7,15 +7,6 @@ Welcome to the UiAbot documentation!
 
    UiAbot AMR platform.
 
-Contributors
-------------
-The following people have made significant contributions to the creation and maintenance of this documentation:
-
-* **`Martin Mæland <https://no.linkedin.com/in/martinmaeland>`_**
-* **`Tarjei Skotterud <https://no.linkedin.com/in/tarjeiskotterud>`_**
-* **`Martin Dahlseng Hermansen <https://no.linkedin.com/in/martin-dahlseng-hermansen-540b74171>`_**
-* **`Veda Gupta <https://in.linkedin.com/in/the-veda-gupta>`_**
-* **`Daniel Hagen <https://no.linkedin.com/in/hagenmek>`_**
 
 Acknowledgment
 --------------
@@ -32,6 +23,17 @@ Inspired by TurtleBot3, Prof. Dr. `Daniel Hagen <https://www.uia.no/en/kk/profil
      year={2024},
      pages={1--8},
      doi={10.1109/ICIEA61579.2024.10664856}}
+
+Contributors
+------------
+The following people have made significant contributions to the creation and maintenance of this documentation:
+
+* **`Martin Mæland <https://no.linkedin.com/in/martinmaeland>`_**
+* **`Tarjei Skotterud <https://no.linkedin.com/in/tarjeiskotterud>`_**
+* **`Martin Dahlseng Hermansen <https://no.linkedin.com/in/martin-dahlseng-hermansen-540b74171>`_**
+* **`Veda Gupta <https://in.linkedin.com/in/the-veda-gupta>`_**
+* **`Daniel Hagen <https://no.linkedin.com/in/hagenmek>`_**
+
 
 .. toctree::
    :hidden:
