@@ -7,9 +7,19 @@ Welcome to the UiAbot documentation!
 
    UiAbot AMR platform.
 
+Contributors
+------------
+The following people have made significant contributions to the creation and maintenance of this documentation:
+
+* **`Martin Mæland <https://no.linkedin.com/in/martinmaeland>`_**
+* **`Tarjei Skotterud <https://no.linkedin.com/in/tarjeiskotterud>`_**
+* **`Martin Dahlseng Hermansen <https://no.linkedin.com/in/martin-dahlseng-hermansen-540b74171>`_**
+* **`Veda Gupta <https://in.linkedin.com/in/the-veda-gupta>`_**
+* **`Daniel Hagen <https://no.linkedin.com/in/hagenmek>`_**
+
 Acknowledgment
 --------------
-Inspired by TurtleBot3, Prof. Dr. `Daniel Hagen <https://www.uia.no/en/kk/profile/danielh>`_ developed the UiAbot from 2021 to 2022 in collaboration with Mechatronics students. Funding for the necessary equipment and the development of this mobile robot platform was generously provided by the Mechatronics Section at the University of Agder.   
+Inspired by TurtleBot3, Prof. Dr. `Daniel Hagen <https://www.uia.no/en/kk/profile/danielh>`_ developed the UiAbot from 2021 to 2022 in collaboration with Mechatronics students. Funding for the necessary equipment and the development of this mobile robot platform was generously provided by the Mechatronics Section at the University of Agder.
 
 **Publication:** This work has been published in `IEEE ICIEA 2024 <https://ieeexplore.ieee.org/document/10664856>`_. To cite, please use the following BibTeX:
 
@@ -20,7 +30,7 @@ Inspired by TurtleBot3, Prof. Dr. `Daniel Hagen <https://www.uia.no/en/kk/profil
      booktitle={2024 IEEE 19th Conference on Industrial Electronics and Applications (ICIEA)},
      title={UiAbot: A Versatile Autonomous Mobile Robot Platform for Research and Education},
      year={2024},
-     pages={1-8},
+     pages={1--8},
      doi={10.1109/ICIEA61579.2024.10664856}}
 
 .. toctree::
