@@ -130,7 +130,7 @@ Install third-party software
 
    On UiAbot:
       * ROS 2 Humble: `Installation Guide <https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html>`__
-      * odrivetool: `Installation Guide <https://docs.odriverobotics.com/v/latest/getting-started.html#install-odrivetool>`__
+      * odrivetool: `Installation Guide <https://docs.odriverobotics.com/v/0.5.6/getting-started.html>`__
 
    On Remote PC:
       * ROS 2 Humble: `Installation Guide <https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html>`__ (Ubuntu 22.04 PC)
