@@ -168,14 +168,12 @@ This guide launches all nodes required to drive the UiAbot remotely using the pc
 
     .. code:: bash
 
-        export ROS_DOMAIN_ID=5
         ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
 3. Run the following command on the **remote pc** to launch RViz with map visualization:
 
     .. code:: bash
 
-        export ROS_DOMAIN_ID=5
         rviz2 -d ~/.rviz2/SLAM.rviz
 
 4. When you are finished mapping, run the following command to save the map on **jetson**.

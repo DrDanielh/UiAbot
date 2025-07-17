@@ -157,7 +157,6 @@ This guide launches all nodes required to drive the UiAbot using nav2 in an exis
 
     .. code:: bash
 
-        export ROS_DOMAIN_ID=5
         ros2 launch nav2_bringup rviz_launch.py
 
 Run Nav2 with SLAM
@@ -175,5 +174,4 @@ This guide launches all nodes required to drive the UiAbot using nav2 in while p
 
     .. code:: bash
 
-        export ROS_DOMAIN_ID=5
         ros2 launch nav2_bringup rviz_launch.py
