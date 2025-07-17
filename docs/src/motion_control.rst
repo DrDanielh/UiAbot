@@ -60,8 +60,11 @@ The figure above shows this by using the built-in ``teleop_twist_keyboard`` node
         
 .. _motion_control inverse_kinematics:
 
-Inverse Kinematics
+Motion Controller
 ------------------
+
+Inverse Kinematics
+^^^^^^^^^^^^^^^^^^^
 To translate the desired motion
 from the robot’s coordinate frame into wheel-specific velocity
 commands, inverse kinematics is used. The kinematic model
@@ -142,33 +145,6 @@ The inverse kinematics of the robot is implemented in the :ref:`uiabot_pkg contr
     .. code-block:: bash
 
         ros2 run uiabot control
-
-.. _motion_control forward_kinematics:
-
-Forward Kinematics
-------------------
-
-The forward kinematics is used to transform wheel angular velocities, :math:`\dot{\phi}_r` and :math:`\dot{\phi}_l`, to robot angular and linear velocities, :math:`\dot{x}` and :math:`\dot{\theta}`, given in the local coordinate frame. Based on equation :eq:`inverse_kinematics` from the inverse kinematics, we can solve for :math:`\dot{x}` and :math:`\dot{\theta}`. Which gives the following equation.
-
-.. math::
-    \begin{bmatrix}\dot{x} \\ \dot{\theta}\end{bmatrix} = \begin{bmatrix}\frac{r}{2} & \frac{r}{2} \\ \frac{L}{2} & -\frac{L}{2}\end{bmatrix} \begin{bmatrix}\dot{\phi}_r \\ \dot{\phi}_l \end{bmatrix}
-    :label: forward_kinematics
-
-The forward kinematics of the robot is implemented in the :ref:`uiabot_pkg mechanical_odometry` node.
-
-
-.. figure:: fig/odom.svg
-    :width: 700
-    :align: center 
-
-    Figure: The UiAbot ROS 2 mechanical odometry node diagram.
-
-.. note::
-    Command to run the ``mechanical_odometry`` node:
-
-    .. code-block:: bash
-
-        ros2 run uiabot mechanical_odometry
 
 .. _motion_control controller:
 
