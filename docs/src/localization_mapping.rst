@@ -164,14 +164,14 @@ This guide launches all nodes required to drive the UiAbot remotely using the pc
 
         ros2 launch uiabot teleop_slam.launch.py
 
-2. Run the following command on the **pc** to launch the ``teleop_twist_keyboard`` node:
+2. Run the following command on the **remote pc** to launch the ``teleop_twist_keyboard`` node:
 
     .. code:: bash
 
         export ROS_DOMAIN_ID=5
         ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
-3. Run the following command on the **pc** to launch RViz with map visualization:
+3. Run the following command on the **remote pc** to launch RViz with map visualization:
 
     .. code:: bash
 

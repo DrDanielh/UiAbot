@@ -183,11 +183,10 @@ This guide launches all nodes required to drive the UiAbot remotely using the pc
 
         ros2 launch uiabot teleop.launch.py
 
-2. Run the following command on the **pc** to launch the ``teleop_twist_keyboard`` node:
+2. Run the following command on the **remote pc** to launch the ``teleop_twist_keyboard`` node:
 
     .. code:: bash
 
-        export ROS_DOMAIN_ID=5
         ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
  
@@ -202,11 +201,17 @@ This guide launches all nodes required to drive the UiAbot remotely using the ga
 
         ros2 launch uiabot teleop.launch.py
 
-2. Run the following command on the **jetson** to launch the ``teleop_twist_keyboard`` node:
+2. Run the following command on the **jetson** to launch the ``teleop_twist_joy`` node with the handed out UiAbot game controller:
 
     .. code:: bash
 
         export CONFIG_PATH=/home/jetson/shanwan_gamepad_config.yaml # export CONFIG_PATH=/path/to/your/config.yml
-        export ROS_DOMAIN_ID=5
         ros2 launch teleop_twist_joy teleop-launch.py joy_config_file:=$CONFIG_PATH
+
+Alternatively, run the following command on the **jetson** or **remote pc** to launch the ``teleop_twist_joy`` node with a standard Xbox controller:
+
+    .. code:: bash
+
+        ros2 launch teleop_twist_joy teleop-launch.py joy_config:='xbox'
+
         

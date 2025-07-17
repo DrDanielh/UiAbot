@@ -153,7 +153,7 @@ This guide launches all nodes required to drive the UiAbot using nav2 in an exis
 
         ros2 launch uiabot localization_navigation.launch.py map_path:=/home/jetson/uiabot_ws/src/uiabot/map/map_mezzanine.yaml
 
-2. Run the following command on the **pc** to launch RViz with map visualization:
+2. Run the following command on the **remote pc** to launch RViz with map visualization:
 
     .. code:: bash
 
@@ -171,7 +171,7 @@ This guide launches all nodes required to drive the UiAbot using nav2 in while p
 
         ros2 launch uiabot slam_navigation.launch.py
 
-2. Run the following command on the **pc** to launch RViz with map visualization:
+2. Run the following command on the **remote pc** to launch RViz with map visualization:
 
     .. code:: bash
 

@@ -60,7 +60,7 @@ Its recomended to use a Ubuntu 22.04 operating system with ROS 2 Humble installe
 Connecting to UiAbot (SSH)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On your **pc**, make sure you are on the same wi-fi as the UiAbot from the previous section.
+1. On your **remote pc**, make sure you are on the same wi-fi as the UiAbot from the previous section.
 2. Connect to the UiAbot with SSH.
 
     .. code:: bash
