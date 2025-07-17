@@ -157,7 +157,7 @@ This guide launches all nodes required to drive the UiAbot remotely using the pc
 
     .. code:: bash
 
-        ros2 launch uiabot teleop.launch.py
+        ros2 launch uiabot teleop_motion_control.launch.py
 
 2. Run the following command on the **remote pc** to launch the ``teleop_twist_keyboard`` node:
 
@@ -175,7 +175,7 @@ This guide launches all nodes required to drive the UiAbot remotely using the ga
 
     .. code:: bash
 
-        ros2 launch uiabot teleop.launch.py
+        ros2 launch uiabot teleop_motion_control.launch.py
 
 2. Run the following command on the **jetson** to launch the ``teleop_twist_joy`` node with the handed out UiAbot game controller:
 
