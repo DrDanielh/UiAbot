@@ -25,6 +25,24 @@ The figure below illustrates how this is implemented in ROS 2.
 
     Figure: Motion control communication diagram.
 
+Motor Controller
+----------------
+On the uiabot, the motors are driven by a ODrive controller board, which is connected to the Jetson Nano through USB. To make the ODrive available on the ROS 2 network, an interface node is created: :ref:`odrive_ros2_pkg odrive_ros2`. This node makes it possible to publish velocity references to each wheel.
+
+.. figure:: fig/odrive.svg
+    :width: 500
+    :align: center 
+
+    Figure: The ROS 2 ODrive controller node diagram.
+
+.. note::
+    Command to run the ``odrive_ros2`` node:
+
+    .. code-block:: bash
+
+        ros2 run odrive_ros2 odrive_ros2 
+
+
 Motion Reference
 ----------------
 UiAbot’s motion is guided by linear
@@ -153,24 +171,6 @@ The forward kinematics of the robot is implemented in the :ref:`uiabot_pkg mecha
         ros2 run uiabot mechanical_odometry
 
 .. _motion_control controller:
-
-Motor Controller
-----------------
-On the uiabot, the motors are driven by a ODrive controller board, which is connected to the Jetson Nano through USB. To make the ODrive available on the ROS 2 network, an interface node is created: :ref:`odrive_ros2_pkg odrive_ros2`. This node makes it possible to publish velocity references to each wheel.
-
-.. figure:: fig/odrive.svg
-    :width: 500
-    :align: center 
-
-    Figure: The ROS 2 ODrive controller node diagram.
-
-.. note::
-    Command to run the ``odrive_ros2`` node:
-
-    .. code-block:: bash
-
-        ros2 run odrive_ros2 odrive_ros2 
-
 
 Driving remotely with keyboard
 ------------------------------
