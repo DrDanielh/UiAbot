@@ -209,25 +209,25 @@ Install developed software
 
        .. code:: bash
 
-           git clone https://github.com/DrDanielh/bno055-i2c-ros2.git -b v1.0.0
+           git clone https://github.com/DrDanielh/bno055-i2c-ros2.git
 
    * ``odrive_ros2`` (`src <https://github.com/DrDanielh/odrive-ros2.git>`__)
 
        .. code:: bash
 
-           git clone https://github.com/DrDanielh/odrive-ros2.git -b v1.0.0
+           git clone https://github.com/DrDanielh/odrive-ros2.git
 
    * ``odrive_interfaces`` (`src <https://github.com/DrDanielh/odrive-interfaces>`__)
 
        .. code:: bash
 
-           git clone https://github.com/DrDanielh/odrive-interfaces.git -b v1.0.0
+           git clone https://github.com/DrDanielh/odrive-interfaces.git
 
    * ``uiabot`` (`src <https://github.com/DrDanielh/uiabot-ros2>`__)
 
        .. code:: bash
 
-           git clone https://github.com/DrDanielh/uiabot-ros2.git -b v1.0.0
+           git clone https://github.com/DrDanielh/uiabot-ros2.git
            cp -r /path/to/cloned/repo/config ~/.rviz2/
 
 The ``src`` directory should now look like this.
