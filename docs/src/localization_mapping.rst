@@ -182,4 +182,4 @@ This guide launches all nodes required to drive the UiAbot remotely using the pc
 
     .. code:: bash
 
-        ros2 run nav2_map_server map_saver_cli -f /home/jetson/uiabot_ws/src/uiabot/map/<map_name>
+        ros2 run nav2_map_server map_saver_cli -f ~/uiabot_ws/src/uiabot-ros2/map/<map_name> 
