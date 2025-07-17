@@ -228,8 +228,7 @@ Install developed software
        .. code:: bash
 
            git clone https://github.com/DrDanielh/uiabot-ros2.git
-           cp -r /path/to/cloned/repo/config ~/.rviz2/
-
+           
 The ``src`` directory should now look like this.
 
     .. code::
