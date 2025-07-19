@@ -16,7 +16,7 @@ The UiAbot perception system is a complex integration of various sensors, each o
     :width: 500
     :align: center
 
-    Figure: Diagram illustrating the UiAbot perception system integrated with ROS 2.
+    Figure: Diagram illustrating the UiAbot perception system integrated with ROS 2. Note: The wheel_tf_publisher node (which publishes joint states) is not shown in this diagram but is part of the complete perception pipeline.
 
 The UiAbot has the following sensors installed and implemented in this project:
 
@@ -33,7 +33,11 @@ The CUI AMT102 encoder has customizeable quadrature resolution up to 2048 PPR, w
 
 The implementation of the encoder was done by extending the ``odrive_ros2`` node with a publisher that emits all the necessary feedback data (motor position and velocity). The feedback data is published with msg-type `std_msgs/Float32 <http://docs.ros.org/en/noetic/api/std_msgs/html/msg Float32.html>`_on the relevant topics for each axis, as seen in figure above.
 
-To visualize wheel motion in `Rviz2 <https://github.com/ros2/rviz>`_, an URDF is created with the mesh of the UiAbot including all relevant frames and their pose relative to ``base_link``. Furthermore, an extension to the :ref:`uiabot_pkg mechanical_odometry` node is added to publish the position of the two wheel joints as a `sensor_msgs/JointState <http://docs.ros.org/en/noetic api/sensor_msgs/html/msg/JointState.html>`_ message  on the ``/joint_states`` topic. Then, using the built-in `robot_state_publisher <https://github.com/ros/robot_state_publisher/tree/humble>`_ with the URDF as an  argument, the correct transforms is automatically updated and published to the ``/robot_description`` topic. Additionally, the static and dynamic TF's based on the URDF,  is broadcasted for later usage.
+To visualize wheel motion in `Rviz2 <https://github.com/ros2/rviz>`_, an URDF is created with the mesh of the UiAbot including all relevant frames and their pose relative to ``base_link``. 
+
+The wheel joint state publishing functionality has been separated into a dedicated ``wheel_tf_publisher`` node. This node reads the wheel encoder data and publishes the position of the two wheel joints as a `sensor_msgs/JointState <http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/JointState.html>`_ message on the ``/joint_states`` topic. The :ref:`uiabot_pkg mechanical_odometry` node now focuses solely on computing and publishing odometry data based on wheel encoder feedback.
+
+Then, using the built-in `robot_state_publisher <https://github.com/ros/robot_state_publisher/tree/humble>`_ with the URDF as an argument, the correct transforms are automatically updated and published to the ``/robot_description`` topic. Additionally, the static and dynamic TF's based on the URDF are broadcasted for later usage.
 
 The ``/robot_description`` topic can then be subscribed to in Rviz2, which then will visualize the robot and all its frames dynamically.
 
@@ -44,13 +48,26 @@ The ``/robot_description`` topic can then be subscribed to in Rviz2, which then 
   Figure: Wheel encoder visualization in Rviz2.
 
 .. note::
-    Command to run the ``robot_state_publisher`` node: 
+    Commands to run the wheel transform publishing pipeline:
+
+    1. First, run the ``wheel_tf_publisher`` node to publish joint states:
 
     .. code-block:: bash
 
-        ros2 run robot_state_publisher robot_state_publisher --ros-args -r robot_description:=<URDF as a string>
+        ros2 run uiabot wheel_tf_publisher
+
+    2. Then, run the ``robot_state_publisher`` node to broadcast transforms: 
+
+    .. code-block:: bash
+
+        # First, process the xacro file to generate URDF XML
+        xacro $(ros2 pkg prefix uiabot)/share/uiabot/urdf/uiabot.urdf.xacro > /tmp/uiabot.urdf
+        
+        # Then run robot_state_publisher with the processed URDF
+        ros2 run robot_state_publisher robot_state_publisher --ros-args \
+          -p robot_description:="$(cat /tmp/uiabot.urdf)"
     
-    This node should be ran in a launch file for a correct parsing of the URDF in string format.
+    Note: The URDF is generated from a xacro file that must be processed before use. In practice, both nodes should be run in a launch file for proper URDF processing and synchronization.
         
 
 Inertial Measurement Unit (IMU)
