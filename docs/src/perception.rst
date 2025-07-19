@@ -68,6 +68,12 @@ The ``/robot_description`` topic can then be subscribed to in Rviz2, which then 
           -p robot_description:="$(cat /tmp/uiabot.urdf)"
     
     Note: The URDF is generated from a xacro file that must be processed before use. In practice, both nodes should be run in a launch file for proper URDF processing and synchronization.
+    
+    To see the wheel transforms actually moving (as shown in the GIF above), you also need to run the motion control system:
+    
+    .. code-block:: bash
+    
+        ros2 launch uiabot teleop_motion_control.launch.py
         
 
 Inertial Measurement Unit (IMU)
