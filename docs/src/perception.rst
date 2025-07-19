@@ -67,7 +67,7 @@ The ``/robot_description`` topic can then be subscribed to in Rviz2, which then 
         ros2 run robot_state_publisher robot_state_publisher --ros-args \
           -p robot_description:="$(cat /tmp/uiabot.urdf)"
     
-    To see the wheel transforms actually moving (as shown in the GIF above), run the motion control system instead:
+    Note: The above commands only visualize encoder feedback. To actually drive the wheels and see them moving (as shown in the GIF above), you also need to run the motion control system:
     
     .. code-block:: bash
     
