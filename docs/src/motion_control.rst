@@ -148,8 +148,11 @@ The inverse kinematics of the robot is implemented in the :ref:`uiabot_pkg contr
 
 .. _motion_control controller:
 
+Teleop
+-----------------
+
 Driving remotely with keyboard
-------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This guide launches all nodes required to drive the UiAbot remotely using the pc keyboard.
 
@@ -167,7 +170,7 @@ This guide launches all nodes required to drive the UiAbot remotely using the pc
 
  
 Driving remotely with Game Controller
---------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This guide launches all nodes required to drive the UiAbot remotely using the game controller
 

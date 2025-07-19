@@ -67,11 +67,7 @@ The ``/robot_description`` topic can then be subscribed to in Rviz2, which then 
         ros2 run robot_state_publisher robot_state_publisher --ros-args \
           -p robot_description:="$(cat /tmp/uiabot.urdf)"
     
-    Note: The above commands only visualize encoder feedback. To actually drive the wheels and see them moving (as shown in the GIF above), you also need to run the motion control system:
-    
-    .. code-block:: bash
-    
-        ros2 launch uiabot teleop_motion_control.launch.py
+    Note: The above commands only visualize encoder feedback. To actually drive the wheels and see them moving (as shown in the GIF above), follow the teleoperation instructions in the :ref:`motion_control` section.
         
 
 Inertial Measurement Unit (IMU)
