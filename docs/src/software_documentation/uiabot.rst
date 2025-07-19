@@ -75,10 +75,10 @@ launch
 * ``teleop_perception.launch.py``
 
   * Remote control using the computer keyboard.
-  * Mechanical odometry.
   * IMU and LiDAR.
   * IMU orientation visualization
   * Robot state publisher.
+  * Wheel TF publisher.
   * The ``teleop_twist_keyboard`` node must be ran on the pc.
 
 * ``teleop_slam.launch.py``

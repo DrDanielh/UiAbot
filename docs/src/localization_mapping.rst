@@ -25,9 +25,7 @@ UiAbot employs wheel encoders and an IMU for this purpose.
 Mechanical Odometry
 ^^^^^^^^^^^^^^^^^^^
 
-Localization using encoders is often refered to as mechanical odometry, since it uses encoders to get data from the mechanical parts of the robot. In this project we use the  angular velocity feedback from the wheel encoders. The mechanical odometry uses the :ref:`motion_control forward_kinematics` to calculate the actual robot velocities in the local coordinate frame, by transforming the angular velocities.
-
-.. _motion_control forward_kinematics:
+Localization using encoders is often refered to as mechanical odometry, since it uses encoders to get data from the mechanical parts of the robot. In this project we use the angular velocity feedback from the wheel encoders. The mechanical odometry uses forward kinematics to calculate the actual robot velocities in the local coordinate frame, by transforming the angular velocities.
 
 Forward Kinematics
 ^^^^^^^^^^^^^^^^^^^
@@ -38,23 +36,13 @@ The forward kinematics is used to transform wheel angular velocities, :math:`\do
     \begin{bmatrix}\dot{x} \\ \dot{\theta}\end{bmatrix} = \begin{bmatrix}\frac{r}{2} & \frac{r}{2} \\ \frac{L}{2} & -\frac{L}{2}\end{bmatrix} \begin{bmatrix}\dot{\phi}_r \\ \dot{\phi}_l \end{bmatrix}
     :label: forward_kinematics
 
-The forward kinematics of the robot is implemented in the :ref:`uiabot_pkg mechanical_odometry` node.
-
+The forward kinematics of the robot is implemented in the :ref:`uiabot_pkg mechanical_odometry` node. The robot velocities are then integrated and decomposed to find the robot position and angle with respect to the ``odom`` frame. The ``mechanical_odometry`` node publishes the robot position and velocity w.r.t. the odom-frame in a `nav_msgs/Odom <http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html>`_ message on the ``/mechanical_odometry`` topic.
 
 .. figure:: fig/odom.svg
     :width: 700
     :align: center 
 
     Figure: The UiAbot ROS 2 mechanical odometry node diagram.
-
-.. note::
-    Command to run the ``mechanical_odometry`` node:
-
-    .. code-block:: bash
-
-        ros2 run uiabot mechanical_odometry
-
- The robot velocities are then integrated and decomposed to find the robot position and angle with respect to the ``odom`` frame. This is implemented in the ``mechanical_odometry`` node introduced in :ref:`motion_control`. The ``mechanical_odometry`` node publishes the robot position and velocity w.r.t. the odom-frame in a `nav_msgs/Odom <http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html>`_ message on the ``/mechanical_odometry`` topic.
 
 .. note::
     Command to run the ``mechanical_odometry`` node:
@@ -203,7 +191,7 @@ This guide launches all nodes required to drive the UiAbot remotely using the pc
 
     .. code:: bash
 
-        rviz2 -d ~/.rviz2/SLAM.rviz
+        rviz2 -d $(ros2 pkg prefix uiabot)/share/uiabot/rviz/slam.rviz
 
 4. When you are finished mapping, run the following command to save the map on **jetson**.
 

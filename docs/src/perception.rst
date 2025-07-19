@@ -6,8 +6,7 @@ Perception
 ==========
 The concept of percetion, in the field of robotics, is to organize, identify and interpret sensor information 
 in order to represent and understand the robot's surrounding environment. This is a crucial factor in any robotic
-system that is supposed to do autonomous tasks. For a better description of the widely known see-think-act cycle, referred to as the foundation
-in all autonomous operations, it is rewritten as a *percept*-think-act cycle.
+system that is supposed to do autonomous tasks. 
 
 The UiAbot perception system is a complex integration of
 various sensors, each of which feeds data into the ROS 2
@@ -47,8 +46,8 @@ data (motor position and velocity). The feedback data is published with msg-type
 on the relevant topics for each axis, as seen in figure above.
 
 To visualize wheel motion in `Rviz2 <https://github.com/ros2/rviz>`_, an URDF is created with the mesh of the UiAbot including all relevant
-frames and their pose relative to ``base_link``. Furthermore, an extension to the :ref:`uiabot_pkg mechanical_odometry`
-node is added to publish the position of the two wheel joints as a `sensor_msgs/JointState <http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/JointState.html>`_ message 
+frames and their pose relative to ``base_link``. The :ref:`uiabot_pkg wheel_tf_publisher`
+node publishes the position of the two wheel joints as a `sensor_msgs/JointState <http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/JointState.html>`_ message 
 on the ``/joint_states`` topic. Then, using the built-in `robot_state_publisher <https://github.com/ros/robot_state_publisher/tree/humble>`_ with the URDF as an 
 argument, the correct transforms is automatically updated and published to the ``/robot_description`` topic. Additionally, the static and dynamic TF's based on the URDF, 
 is broadcasted for later usage.
@@ -148,10 +147,10 @@ The laser scan visualization in Rviz2 is done by adding a LaserScan subscriber t
     
     The execution of this node is integrated in custom UiAbot launch files instead of using the launch file from the ``rplidar_ros`` package.
 
-Visualizing mechanical odometry, LiDAR, and IMU
------------------------------------------------
+Visualizing LiDAR and IMU
+--------------------------
 
-This guide launches all nodes required to drive the UiAbot remotely using the pc keyboard, in addition to the sensor nodes for the LiDAR and IMU. It also launches the mechanical odometry node which calculates the robot position relative to the intial frame. The robot description is also published to the network, which enables the visualization in RViz.
+This guide launches all nodes required to drive the UiAbot remotely using the pc keyboard, in addition to the sensor nodes for the LiDAR and IMU. The robot description is also published to the network, which enables the visualization in RViz.
 
 1. Run the following command on the **jetson** to launch the control and sensor nodes:
 
@@ -169,5 +168,5 @@ This guide launches all nodes required to drive the UiAbot remotely using the pc
 
     .. code:: bash
 
-        rviz2 -d ~/.rviz2/mech_odom.rviz
+        rviz2 -d $(ros2 pkg prefix uiabot)/share/uiabot/rviz/perception.rviz
 
