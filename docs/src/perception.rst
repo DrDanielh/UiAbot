@@ -195,15 +195,11 @@ This guide launches all nodes required to drive the UiAbot remotely using the pc
 
         ros2 launch uiabot teleop_perception.launch.py
 
-2. Run the following command on the **remote pc** to launch the ``teleop_twist_keyboard`` node:
-
-    .. code:: bash
-
-        ros2 run teleop_twist_keyboard teleop_twist_keyboard
-
-3. Run the following command on the **remote pc** to launch RViz:
+2. Run the following command on the **remote pc** to launch RViz:
 
     .. code:: bash
 
         rviz2 -d $(ros2 pkg prefix uiabot)/share/uiabot/rviz/perception.rviz
+
+3. Follow the teleoperation instructions in the :ref:`motion_control` section to control the robot remotely.
 
