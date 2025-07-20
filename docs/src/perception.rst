@@ -92,13 +92,6 @@ The IMU is connected to I²C bus 1 on the jetson. Checking with command ``i2cdet
 
 As seen in the diagram on top, the used topic is the ``/bno055/data``, which consists of the fused and filtered absolute data from the IMU.
 
-.. note::
-    Command to run the ``bno055_i2c_ros2`` node: 
-
-    .. code-block:: bash
-
-        ros2 run bno055_i2c_ros2 bno055_i2c_ros2
-
 Visualizing the IMU orientation was done by the creation of an additional node in the :ref:`uiabot_pkg` package, named :ref:`uiabot_pkg imu_tf_viz`. This node broadcasts the TF of an ``imu`` frame relative to a fixed ``world`` frame, which then can be seen in Rviz2.
 
 .. figure:: res/imu_tf.gif
