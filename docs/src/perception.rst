@@ -78,6 +78,7 @@ The ``/robot_description`` topic can then be subscribed to in Rviz2 on the remot
     - Set **Fixed Frame** to ``base_link`` in the Global Options
     - Add a **RobotModel** display by clicking "Add" → "By display type" → "RobotModel"
     - Set the **Description Topic** to ``/robot_description``
+    - Add a **TF** display by clicking "Add" → "By display type" → "TF"
     - You should see the robot mesh with wheel joints that update based on encoder feedback
 
     4. Note: The above commands only visualize encoder feedback. To actually drive the wheels and see them moving (as shown in the GIF above), follow the teleoperation instructions in the :ref:`motion_control` section.
@@ -93,7 +94,7 @@ The IMU is connected to I²C bus 1 on the jetson. Checking with the following co
 
 As seen in the diagram on top, the used topic is the ``/bno055/data``, which consists of the fused and filtered absolute data from the IMU.
 
-Visualizing the IMU orientation was done by the creation of an additional node in the :ref:`uiabot_pkg` package, named :ref:`uiabot_pkg imu_tf_viz`. This node broadcasts the TF of an ``imu`` frame relative to a fixed ``world`` frame, which then can be seen in Rviz2 on the remote PC.
+Visualizing the IMU orientation was done by the creation of an additional node in the :ref:`uiabot_pkg` package, named :ref:`uiabot_pkg imu_tf_viz`. This node broadcasts the TF of an ``imu`` frame relative to a fixed ``bno055`` frame, which then can be seen in Rviz2 on the remote PC.
 
 .. figure:: res/imu_tf.gif
   :align: center
@@ -124,10 +125,10 @@ Visualizing the IMU orientation was done by the creation of an additional node i
 
     Then in RViz2:
     
-    - Set **Fixed Frame** to ``world`` in the Global Options
+    - Set **Fixed Frame** to ``bno055`` in the Global Options
     - Add a **TF** display by clicking "Add" → "By display type" → "TF"
     - Enable "Show Names" and "Show Axes" in the TF display properties
-    - You should see the ``imu`` frame rotating relative to the fixed ``world`` frame
+    - You should see the ``imu`` frame rotating relative to the fixed ``bno055`` frame
     - Optionally add an **Imu** display and set the topic to ``/bno055/data`` to see the IMU data visualization
 
     Note: The ``imu_tf_viz`` node is only used during this section to visualize IMU orientation alone and is not a part of the complete system.
