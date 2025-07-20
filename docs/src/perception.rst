@@ -39,7 +39,7 @@ The wheel joint state publishing functionality has been separated into a dedicat
 
 Then, using the built-in `robot_state_publisher <https://github.com/ros/robot_state_publisher/tree/humble>`_ with the URDF as an argument, the correct transforms are automatically updated and published to the ``/robot_description`` topic. Additionally, the static and dynamic TF's based on the URDF are broadcasted for later usage.
 
-The ``/robot_description`` topic can then be subscribed to in Rviz2, which then will visualize the robot and all its frames dynamically.
+The ``/robot_description`` topic can then be subscribed to in Rviz2 on the remote PC, which then will visualize the robot and all its frames dynamically.
 
 .. figure:: res/wheel_tf.gif
   :align: center
@@ -50,13 +50,13 @@ The ``/robot_description`` topic can then be subscribed to in Rviz2, which then 
 .. note::
     Commands to run the wheel transform publishing pipeline:
 
-    1. First, run the ``wheel_tf_publisher`` node to publish joint states:
+    1. First, run the following command on the **jetson** to run the ``wheel_tf_publisher`` node to publish joint states:
 
     .. code-block:: bash
 
         ros2 run uiabot wheel_tf_publisher
 
-    2. Then, run the ``robot_state_publisher`` node to broadcast transforms: 
+    2. Then, run the following command on the **jetson** to run the ``robot_state_publisher`` node to broadcast transforms: 
 
     .. code-block:: bash
 
@@ -69,7 +69,7 @@ The ``/robot_description`` topic can then be subscribed to in Rviz2, which then 
     
     Note: The above commands only visualize encoder feedback. To actually drive the wheels and see them moving (as shown in the GIF above), follow the teleoperation instructions in the :ref:`motion_control` section.
 
-    3. To visualize in RViz2, run:
+    3. Run the following command on the **remote pc** to visualize in RViz2:
 
     .. code-block:: bash
 
@@ -88,11 +88,11 @@ The IMU consists of an accelerometer, gyroscope and magnetometer. Each of the th
 
 There are two possible communication peripherals on the chip, UART and I²C. In our case, it was preferred to use the default I²C interface. There is a ROS2 package that already exists, in which implements the I²C communication with the IMU, but due to some calibration problems it did not perform very well on our system. The solution was to rewrite a ROS(1) package to be usable with ROS2. This package was named :ref:`bno055_i2c_ros2_pkg` and has a node, equally named, that publishes the same data as the original ROS(1) node.
 
-The IMU is connected to I²C bus 1 on the jetson. Checking with command ``i2cdetect -y -r 1`` should return a device with ``ID=28``.
+The IMU is connected to I²C bus 1 on the jetson. Checking with the following command on the **jetson**: ``i2cdetect -y -r 1`` should return a device with ``ID=28``.
 
 As seen in the diagram on top, the used topic is the ``/bno055/data``, which consists of the fused and filtered absolute data from the IMU.
 
-Visualizing the IMU orientation was done by the creation of an additional node in the :ref:`uiabot_pkg` package, named :ref:`uiabot_pkg imu_tf_viz`. This node broadcasts the TF of an ``imu`` frame relative to a fixed ``world`` frame, which then can be seen in Rviz2.
+Visualizing the IMU orientation was done by the creation of an additional node in the :ref:`uiabot_pkg` package, named :ref:`uiabot_pkg imu_tf_viz`. This node broadcasts the TF of an ``imu`` frame relative to a fixed ``world`` frame, which then can be seen in Rviz2 on the remote PC.
 
 .. figure:: res/imu_tf.gif
   :align: center
@@ -103,19 +103,19 @@ Visualizing the IMU orientation was done by the creation of an additional node i
 .. note::
     Commands to visualize IMU orientation:
 
-    1. Run the IMU driver node:
+    1. Run the following command on the **jetson** to run the IMU driver node:
 
     .. code-block:: bash
 
         ros2 run bno055_i2c_ros2 bno055_i2c_ros2
 
-    2. Run the IMU visualization node:
+    2. Run the following command on the **jetson** to run the IMU visualization node:
 
     .. code-block:: bash
 
         ros2 run uiabot imu_tf_viz
 
-    3. To visualize in RViz2, run:
+    3. Run the following command on the **remote pc** to visualize in RViz2:
 
     .. code-block:: bash
 
@@ -148,7 +148,7 @@ its installation instructions is stated in :ref:`installation`. Launching the ``
 will publish a `sensor_msgs/LaserScan <http://docs.ros.org/en/melodic/api/sensor_msgs/html/msg/LaserScan.html>`_ message to the ``/scan`` topic. This message has a 
 *frame_id* parameter that defaults to ``bno055``. This frame is set up as a static link in the robot's URDF using the same name. The orientation of of the  broadcasted frame match with the figure above.
 
-The laser scan visualization in Rviz2 is done by adding a LaserScan subscriber to the ``/scan`` topic.
+The laser scan visualization in Rviz2 on the remote PC is done by adding a LaserScan subscriber to the ``/scan`` topic.
 
 .. figure:: res/laser_scan.gif
   :align: center
@@ -159,13 +159,13 @@ The laser scan visualization in Rviz2 is done by adding a LaserScan subscriber t
 .. note::
     Commands to visualize LiDAR data:
 
-    1. Launch the RPLiDAR node:
+    1. Run the following command on the **jetson** to launch the RPLiDAR node:
 
     .. code-block:: bash
 
         ros2 launch rplidar_ros rplidar_a1_launch.py
 
-    2. To visualize in RViz2, run:
+    2. Run the following command on the **remote pc** to visualize in RViz2:
 
     .. code-block:: bash
 
@@ -187,7 +187,7 @@ The laser scan visualization in Rviz2 is done by adding a LaserScan subscriber t
 Visualizing mechanical odometry, LiDAR, and IMU
 -----------------------------------------------
 
-This guide launches all nodes required to drive the UiAbot remotely using the pc keyboard, in addition to the sensor nodes for the LiDAR and IMU. It also launches the mechanical odometry node which calculates the robot position relative to the intial frame. The robot description is also published to the network, which enables the visualization in RViz.
+This guide launches all nodes required to drive the UiAbot remotely using the pc keyboard, in addition to the sensor nodes for the LiDAR and IMU. It also launches the mechanical odometry node which calculates the robot position relative to the intial frame. The robot description is also published to the network, which enables the visualization in RViz on the remote PC.
 
 1. Run the following command on the **jetson** to launch the control and sensor nodes:
 
