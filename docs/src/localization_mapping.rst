@@ -171,7 +171,7 @@ For this project we are using the ``slam_toolbox`` developed by Steve Macenski, 
         ros2 launch slam_toolbox online_async_launch.py
 
 Teleop SLAM
-----
+^^^^^^^^^^^^
 
 This guide launches all nodes required to drive the UiAbot remotely using the pc keyboard, and performing SLAM.
 
