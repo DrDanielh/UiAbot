@@ -66,8 +66,6 @@ The ``/robot_description`` topic can then be subscribed to in Rviz2 on the remot
         # Then run robot_state_publisher with the processed URDF
         ros2 run robot_state_publisher robot_state_publisher --ros-args \
           -p robot_description:="$(cat /tmp/wheel.urdf)"
-    
-    Note: The above commands only visualize encoder feedback. To actually drive the wheels and see them moving (as shown in the GIF above), follow the teleoperation instructions in the :ref:`motion_control` section.
 
     3. Run the following command on the **remote pc** to visualize in RViz2:
 
@@ -77,9 +75,12 @@ The ``/robot_description`` topic can then be subscribed to in Rviz2 on the remot
 
     Then in RViz2:
     
+    - Set **Fixed Frame** to ``base_link`` in the Global Options
     - Add a **RobotModel** display by clicking "Add" → "By display type" → "RobotModel"
     - Set the **Description Topic** to ``/robot_description``
     - You should see the robot mesh with wheel joints that update based on encoder feedback
+
+    4. Note: The above commands only visualize encoder feedback. To actually drive the wheels and see them moving (as shown in the GIF above), follow the teleoperation instructions in the :ref:`motion_control` section.
         
 
 Inertial Measurement Unit (IMU)
