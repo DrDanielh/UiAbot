@@ -218,5 +218,4 @@ This guide launches all nodes required to drive the UiAbot remotely using the pc
 
         rviz2 -d $(ros2 pkg prefix uiabot)/share/uiabot/rviz/perception.rviz
 
-3. Follow the teleoperation instructions in the :ref:`motion_control` section to control the robot remotely.
 
