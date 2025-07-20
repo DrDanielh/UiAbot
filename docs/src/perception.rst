@@ -79,6 +79,7 @@ The ``/robot_description`` topic can then be subscribed to in Rviz2 on the remot
     - Add a **RobotModel** display by clicking "Add" → "By display type" → "RobotModel"
     - Set the **Description Topic** to ``/robot_description``
     - Add a **TF** display by clicking "Add" → "By display type" → "TF"
+    - Enable “Show Names” and “Show Axes” in the TF display properties
     - You should see the robot mesh with wheel joints that update based on encoder feedback
 
     4. Note: The above commands only visualize encoder feedback. To actually drive the wheels and see them moving (as shown in the GIF above), follow the teleoperation instructions in the :ref:`motion_control` section.
@@ -126,10 +127,32 @@ Visualizing the IMU orientation was done by the creation of an additional node i
     Then in RViz2:
     
     - Set **Fixed Frame** to ``bno055`` in the Global Options
-    - Add a **TF** display by clicking "Add" → "By display type" → "TF"
-    - Enable "Show Names" and "Show Axes" in the TF display properties
-    - You should see the ``imu`` frame rotating relative to the fixed ``bno055`` frame
-    - Optionally add an **Imu** display and set the topic to ``/bno055/data`` to see the IMU data visualization
+    - To visualize IMU data, you have several options:
+        
+        **Option 1: Use TF display (recommended)**
+        The ``imu`` frame shows the IMU orientation through the TF display:
+        - Add a **TF** display by clicking "Add" → "By display type" → "TF"
+        - Enable "Show Names" and "Show Axes" in the TF display properties
+        - You should see the ``imu`` frame rotating relative to the fixed ``bno055`` frame
+        - This method works out-of-the-box without additional plugins
+        
+        **Option 2: Install IMU plugin**
+        If you want a dedicated IMU visualization display:
+        
+        .. code-block:: bash
+        
+            sudo apt install ros-humble-rviz-imu-plugin
+        
+        After installation, restart RViz2 and the Imu display type should appear in the Add menu.
+        Then set the topic to ``/bno055/data``.
+        
+        **Option 3: Use Pose or PoseArray display**
+        As an alternative, you can visualize IMU orientation using:
+        - Add a **Pose** display
+        - Create a small node to convert IMU data to PoseStamped messages
+        
+        **Option 4: Use MarkerArray display**
+        The IMU orientation can be visualized as coordinate axes using visualization markers
 
     Note: The ``imu_tf_viz`` node is only used during this section to visualize IMU orientation alone and is not a part of the complete system.
 
