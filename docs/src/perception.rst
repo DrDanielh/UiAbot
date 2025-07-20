@@ -146,14 +146,6 @@ Visualizing the IMU orientation was done by the creation of an additional node i
         After installation, restart RViz2 and the Imu display type should appear in the Add menu.
         Then set the topic to ``/bno055/data``.
         
-        **Option 3: Use Pose or PoseArray display**
-        As an alternative, you can visualize IMU orientation using:
-        - Add a **Pose** display
-        - Create a small node to convert IMU data to PoseStamped messages
-        
-        **Option 4: Use MarkerArray display**
-        The IMU orientation can be visualized as coordinate axes using visualization markers
-
     Note: The ``imu_tf_viz`` node is only used during this section to visualize IMU orientation alone and is not a part of the complete system.
 
 LiDAR
