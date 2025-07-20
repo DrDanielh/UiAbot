@@ -68,6 +68,18 @@ The ``/robot_description`` topic can then be subscribed to in Rviz2, which then 
           -p robot_description:="$(cat /tmp/wheel.urdf)"
     
     Note: The above commands only visualize encoder feedback. To actually drive the wheels and see them moving (as shown in the GIF above), follow the teleoperation instructions in the :ref:`motion_control` section.
+
+    3. To visualize in RViz2, run:
+
+    .. code-block:: bash
+
+        rviz2
+
+    Then in RViz2:
+    
+    - Add a **RobotModel** display by clicking "Add" → "By display type" → "RobotModel"
+    - Set the **Description Topic** to ``/robot_description``
+    - You should see the robot mesh with wheel joints that update based on encoder feedback
         
 
 Inertial Measurement Unit (IMU)
@@ -96,13 +108,35 @@ Visualizing the IMU orientation was done by the creation of an additional node i
   Figure: IMU orientation visualization in Rviz2.
 
 .. note::
-    Command to run the ``imu_tf_viz`` node: 
+    Commands to visualize IMU orientation:
+
+    1. Run the IMU driver node:
+
+    .. code-block:: bash
+
+        ros2 run bno055_i2c_ros2 bno055_i2c_ros2
+
+    2. Run the IMU visualization node:
 
     .. code-block:: bash
 
         ros2 run uiabot imu_tf_viz
 
-    This node is only used during this section to visualize IMU orientation alone and is not a part of the complete system.
+    3. To visualize in RViz2, run:
+
+    .. code-block:: bash
+
+        rviz2
+
+    Then in RViz2:
+    
+    - Set **Fixed Frame** to ``world`` in the Global Options
+    - Add a **TF** display by clicking "Add" → "By display type" → "TF"
+    - Enable "Show Names" and "Show Axes" in the TF display properties
+    - You should see the ``imu`` frame rotating relative to the fixed ``world`` frame
+    - Optionally add an **Imu** display and set the topic to ``/bno055/data`` to see the IMU data visualization
+
+    Note: The ``imu_tf_viz`` node is only used during this section to visualize IMU orientation alone and is not a part of the complete system.
 
 LiDAR
 -----
@@ -130,13 +164,32 @@ The laser scan visualization in Rviz2 is done by adding a LaserScan subscriber t
   Figure: Laser scan visualization in Rviz2.
 
 .. note::
-    Command to launch the ``rplidar_composition`` node: 
+    Commands to visualize LiDAR data:
+
+    1. Launch the RPLiDAR node:
 
     .. code-block:: bash
 
         ros2 launch rplidar_ros rplidar_a1_launch.py
+
+    2. To visualize in RViz2, run:
+
+    .. code-block:: bash
+
+        rviz2
+
+    Then in RViz2:
     
-    The execution of this node is integrated in custom UiAbot launch files instead of using the launch file from the ``rplidar_ros`` package.
+    - Set **Fixed Frame** to ``laser`` in the Global Options
+    - Add a **LaserScan** display by clicking "Add" → "By display type" → "LaserScan"
+    - Set the **Topic** to ``/scan``
+    - Adjust visualization properties as desired:
+        - **Size (m)**: 0.05 for point size
+        - **Style**: Points, Flat Squares, or Spheres
+        - **Color Transformer**: Intensity or FlatColor
+    - You should see the laser scan data as points around the robot showing detected obstacles
+    
+    Note: The execution of this node is integrated in custom UiAbot launch files instead of using the launch file from the ``rplidar_ros`` package.
 
 Visualizing mechanical odometry, LiDAR, and IMU
 -----------------------------------------------
