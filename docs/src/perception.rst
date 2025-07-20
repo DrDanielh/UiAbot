@@ -134,7 +134,7 @@ The laser scan visualization in Rviz2 is done by adding a LaserScan subscriber t
 
     .. code-block:: bash
 
-        ros2 launch rplidar_ros rplidar_launch.py
+        ros2 launch rplidar_ros rplidar_a1_launch.py
     
     The execution of this node is integrated in custom UiAbot launch files instead of using the launch file from the ``rplidar_ros`` package.
 
