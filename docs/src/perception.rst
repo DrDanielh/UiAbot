@@ -35,7 +35,7 @@ The implementation of the encoder was done by extending the ``odrive_ros2`` node
 
 To visualize wheel motion in `Rviz2 <https://github.com/ros2/rviz>`_, an URDF is created with the mesh of the UiAbot including all relevant frames and their pose relative to ``base_link``. 
 
-The wheel joint state publishing functionality has been separated into a dedicated ``wheel_tf_publisher`` node. This node reads the wheel encoder data and publishes the position of the two wheel joints as a `sensor_msgs/JointState <http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/JointState.html>`_ message on the ``/joint_states`` topic. The :ref:`uiabot_pkg mechanical_odometry` node now focuses solely on computing and publishing odometry data based on wheel encoder feedback.
+The wheel joint state publishing functionality has been separated into a dedicated ``wheel_tf_publisher`` node. This node reads the wheel encoder data and publishes the position of the two wheel joints as a `sensor_msgs/JointState <http://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/JointState.html>`_ message on the ``/joint_states`` topic.
 
 Then, using the built-in `robot_state_publisher <https://github.com/ros/robot_state_publisher/tree/humble>`_ with the URDF as an argument, the correct transforms are automatically updated and published to the ``/robot_description`` topic. Additionally, the static and dynamic TF's based on the URDF are broadcasted for later usage.
 
@@ -61,11 +61,11 @@ The ``/robot_description`` topic can then be subscribed to in Rviz2, which then 
     .. code-block:: bash
 
         # First, process the xacro file to generate URDF XML
-        xacro $(ros2 pkg prefix uiabot)/share/uiabot/urdf/uiabot.urdf.xacro > /tmp/uiabot.urdf
+        xacro $(ros2 pkg prefix uiabot)/share/uiabot/urdf/wheel.urdf.xacro > /tmp/wheel.urdf
         
         # Then run robot_state_publisher with the processed URDF
         ros2 run robot_state_publisher robot_state_publisher --ros-args \
-          -p robot_description:="$(cat /tmp/uiabot.urdf)"
+          -p robot_description:="$(cat /tmp/wheel.urdf)"
     
     Note: The above commands only visualize encoder feedback. To actually drive the wheels and see them moving (as shown in the GIF above), follow the teleoperation instructions in the :ref:`motion_control` section.
         
