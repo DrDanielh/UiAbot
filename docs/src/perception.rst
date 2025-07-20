@@ -194,7 +194,7 @@ The laser scan visualization in Rviz2 on the remote PC is done by adding a Laser
     - Add a **LaserScan** display by clicking "Add" → "By display type" → "LaserScan"
     - Set the **Topic** to ``/scan``
     - Adjust visualization properties as desired:
-        - **Size (m)**: 0.05 for point size
+        - **Size**: for point size
         - **Style**: Points, Flat Squares, or Spheres
         - **Color Transformer**: Intensity or FlatColor
     - You should see the laser scan data as points around the robot showing detected obstacles
