@@ -119,7 +119,6 @@ To make the process of sourcing the ROS 2 and workspace setup files easier, you 
 
         echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
         echo "source ~/uiabot_ws/install/setup.bash" >> ~/.bashrc
-        echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> ~/.bashrc
         echo "export ROS_DOMAIN_ID=5" >> ~/.bashrc # Or use the uiabot # you have!
         source ~/.bashrc 
 
