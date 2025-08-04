@@ -1,0 +1,648 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation and Setup &mdash; UiAbot Documentation 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=1e50f97d" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Motion Control" href="motion_control.html" />
+    <link rel="prev" title="Introduction" href="Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            UiAbot Documentation
+              <img src="../_static/uiabot_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Overview.html#system-overview">System Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Overview.html#software-architecture">Software Architecture</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation and Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#nvidia-jetson-sbc">NVIDIA Jetson SBC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#operating-system">Operating System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-wi-fi">Setting up Wi-Fi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#remote-pc">Remote PC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-to-uiabot-ssh">Connecting to UiAbot (SSH)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#automatic-sourcing">Automatic Sourcing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-bashrc-on-uiabot">Set up <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> on UiAbot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-bashrc-on-remote-pc">Set up <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> on Remote PC</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#install-third-party-software">Install third-party software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ros-2-configuration">ROS 2 configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-workspace">Create workspace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-developed-software">Install developed software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-the-workspace">Build the workspace</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-odrive">Configuring ODrive</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-and-troubleshooting">Testing and Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Implementation and Testing:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="motion_control.html">Motion Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="motion_control.html#motor-controller">Motor Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion_control.html#motion-reference">Motion Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion_control.html#motion-controller">Motion Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion_control.html#teleop">Teleop</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="perception.html">Perception</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="perception.html#wheel-encoders">Wheel Encoders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perception.html#inertial-measurement-unit-imu">Inertial Measurement Unit (IMU)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perception.html#lidar">LiDAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="perception.html#visualizing-mechanical-odometry-lidar-and-imu">Visualizing mechanical odometry, LiDAR, and IMU</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="localization_mapping.html">Localization and Mapping</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="localization_mapping.html#odometry">Odometry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="localization_mapping.html#mechanical-odometry">Mechanical Odometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="localization_mapping.html#forward-kinematics">Forward Kinematics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="localization_mapping.html#sensor-fusion">Sensor Fusion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="localization_mapping.html#simultaneous-localization-and-mapping-slam">Simultaneous Localization and Mapping (SLAM)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="localization_mapping.html#teleop-slam">Teleop SLAM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="localization_navigation.html">Autonomous Navigation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#localization-in-predefined-map">Localization in predefined map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#slam-and-navigation">SLAM and Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#nav2-parameters">Nav2 parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#run-nav2-with-amcl">Run Nav2 with AMCL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization_navigation.html#run-nav2-with-slam">Run Nav2 with SLAM</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More Information:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software_documentation.html">Software Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software_documentation/uiabot.html">uiabot-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/uiabot.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/uiabot.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/uiabot.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot/control.html">control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot/mechanical_odometry.html">mechanical_odometry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot/imu_tf_viz.html">imu_tf_viz</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/uiabot.html#package-structure">Package structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot.html#launch">launch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot.html#map">map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot.html#params">params</a></li>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/uiabot.html#urdf">urdf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="software_documentation/odrive_ros2.html">odrive-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_ros2.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_ros2.html#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_ros2.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_ros2.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/odrive_ros2/odrive_ros2.html">odrive-ros2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="software_documentation/odrive_interfaces.html">odrive-interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_interfaces.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/odrive_interfaces.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="software_documentation/bno055_i2c_ros2.html">bno055-i2c-ros2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/bno055_i2c_ros2.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/bno055_i2c_ros2.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software_documentation/bno055_i2c_ros2.html#nodes">Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="software_documentation/bno055_i2c_ros2/bno055_i2c_ros2.html">bno055-i2c-ros2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">UiAbot Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation and Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/src/installation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation-and-setup">
+<h1>Installation and Setup<a class="headerlink" href="#installation-and-setup" title="Link to this heading"></a></h1>
+<p>This page will walk you through the required steps to get the UiAbot set up with the correct software and settings.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is important to follow each step carefully to avoid compatability problems later, and to understand the commands.</p>
+</div>
+<section id="nvidia-jetson-sbc">
+<h2>NVIDIA Jetson SBC<a class="headerlink" href="#nvidia-jetson-sbc" title="Link to this heading"></a></h2>
+<section id="operating-system">
+<h3>Operating System<a class="headerlink" href="#operating-system" title="Link to this heading"></a></h3>
+<p>The operating system utilized on the Jetson Nano is a standard JetPack image installed via <a class="reference external" href="https://developer.nvidia.com/sdk-manager">NVIDIA’s SDK Manager</a>. This installation includes Ubuntu 22.04 along with the comprehensive NVIDIA development toolkit and essential packages for computer vision, machine learning, and artificial intelligence applications.</p>
+</section>
+<section id="setting-up-wi-fi">
+<h3>Setting up Wi-Fi<a class="headerlink" href="#setting-up-wi-fi" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Turn the UiAbot on, and connect to keyboard, mouse, and monitor.</p></li>
+<li><p>On the <strong>jetson</strong> log in to the desired wi-fi, and check if your internet connection.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ping<span class="w"> </span>google.com
+</pre></div>
+</div>
+<p>If you do not get this response, you are not connected to the internet.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jetson@jetson:~$<span class="w"> </span>ping<span class="w"> </span>google.com
+PING<span class="w"> </span>google.com<span class="w"> </span><span class="o">(</span><span class="m">142</span>.250.74.110<span class="o">)</span><span class="w"> </span><span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span><span class="w"> </span>bytes<span class="w"> </span>of<span class="w"> </span>data.
+<span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span>arn11s10-in-f14.1e100.net<span class="w"> </span><span class="o">(</span><span class="m">142</span>.250.74.110<span class="o">)</span>:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">54</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">28</span>.6<span class="w"> </span>ms
+<span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span>arn11s10-in-f14.1e100.net<span class="w"> </span><span class="o">(</span><span class="m">142</span>.250.74.110<span class="o">)</span>:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">54</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">33</span>.5<span class="w"> </span>ms
+<span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span>arn11s10-in-f14.1e100.net<span class="w"> </span><span class="o">(</span><span class="m">142</span>.250.74.110<span class="o">)</span>:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">54</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">32</span>.8<span class="w"> </span>ms
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Print your ip-address, and write it down. It will be needed later.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ip<span class="w"> </span>-br<span class="w"> </span>a
+</pre></div>
+</div>
+<p>It should return something like this.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jetson@jetson:~$<span class="w"> </span>ip<span class="w"> </span>-br<span class="w"> </span>a
+lo<span class="w">               </span>UNKNOWN<span class="w">        </span><span class="m">127</span>.0.0.1/8<span class="w"> </span>::1/128
+enp2s0f0<span class="w">         </span>DOWN
+enp5s0<span class="w">           </span>DOWN
+wlp3s0<span class="w">           </span>UP<span class="w">             </span>&lt;ip_address&gt;/24<span class="w"> </span>fe80::f9d3:4190:d73:2118/64
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Now, unplug the keyboard, mouse, and monitor.</p></li>
+</ol>
+</section>
+</section>
+<section id="remote-pc">
+<h2>Remote PC<a class="headerlink" href="#remote-pc" title="Link to this heading"></a></h2>
+<p>Its recomended to use a Ubuntu 22.04 operating system with ROS 2 Humble installed. The installation guide can be found <a class="reference external" href="https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html">here</a>.</p>
+<section id="connecting-to-uiabot-ssh">
+<h3>Connecting to UiAbot (SSH)<a class="headerlink" href="#connecting-to-uiabot-ssh" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>On your <strong>remote pc</strong>, make sure you are on the same wi-fi as the UiAbot from the previous section.</p></li>
+<li><p>Connect to the UiAbot with SSH.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>jetson@&lt;ip_address&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Use these credentials to log in.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><strong>Username:</strong> jetson</div>
+<div class="line"><strong>Password:</strong> jetson</div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+</section>
+<section id="automatic-sourcing">
+<h2>Automatic Sourcing<a class="headerlink" href="#automatic-sourcing" title="Link to this heading"></a></h2>
+<section id="set-up-bashrc-on-uiabot">
+<h3>Set up <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> on UiAbot<a class="headerlink" href="#set-up-bashrc-on-uiabot" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Add usb access.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;sudo chmod 666 /dev/ttyUSB0&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/home/jetson/.bashrc
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">ROS_DOMAIN_ID</span></code>. Change <code class="docutils literal notranslate"><span class="pre">5</span></code> to your uiabot number,</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export ROS_DOMAIN_ID=5&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/home/jetson/.bashrc<span class="w"> </span><span class="c1"># Or use the uiabot # you have!</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Install and add <code class="docutils literal notranslate"><span class="pre">sl</span></code>.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>sl<span class="w"> </span>-y<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;sl&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/home/jetson/.bashrc
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Automatic Sourcing:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source /home/jetson/uiabot_ws/install/local_setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source /opt/ros/humble/setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Source to update changes.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/home/jetson/.bashrc
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="set-up-bashrc-on-remote-pc">
+<h3>Set up <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> on Remote PC<a class="headerlink" href="#set-up-bashrc-on-remote-pc" title="Link to this heading"></a></h3>
+<p>Automatic Sourcing:
+To make the process of sourcing the ROS 2 and workspace setup files easier, you can add the commands to your shell configuration file. This will ensure that the required environments are sourced automatically.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source /opt/ros/humble/setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source ~/uiabot_ws/install/setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export ROS_DOMAIN_ID=5&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="c1"># Or use the uiabot # you have!</span>
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+<section id="install-third-party-software">
+<h2>Install third-party software<a class="headerlink" href="#install-third-party-software" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Install the following third-party software:</p>
+<dl class="simple">
+<dt>On UiAbot:</dt><dd><ul class="simple">
+<li><p>ROS 2 Humble: <a class="reference external" href="https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html">Installation Guide</a></p></li>
+<li><p>odrivetool: <a class="reference external" href="https://docs.odriverobotics.com/v/0.5.6/getting-started.html">Installation Guide</a></p></li>
+</ul>
+</dd>
+<dt>On Remote PC:</dt><dd><ul class="simple">
+<li><p>ROS 2 Humble: <a class="reference external" href="https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html">Installation Guide</a> (Ubuntu 22.04 PC)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Install the following third-party ROS 2 packages.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">rplidar_ros</span></code> (<a class="reference external" href="https://github.com/Slamtec/rplidar_ros/tree/ros2">src</a>)</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-rplidar-ros<span class="w"> </span>-y
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">robot_localization</span></code> (<a class="reference external" href="https://github.com/cra-ros-pkg/robot_localization/tree/humble-devel">src</a>)</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-robot-localization<span class="w"> </span>-y
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slam_toolbox</span></code> (<a class="reference external" href="https://github.com/SteveMacenski/slam_toolbox/tree/humble">src</a>)</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-slam-toolbox<span class="w"> </span>-y
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nav2</span></code> (<a class="reference external" href="https://github.com/ros-planning/navigation2/tree/humble">src</a>)</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-navigation2<span class="w"> </span>-y
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-nav2-bringup<span class="w"> </span>-y
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Other</span> <span class="pre">dependencies</span></code></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-xacro
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-humble-teleop-twist-joy<span class="w"> </span>ros-humble-joy
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="ros-2-configuration">
+<h2>ROS 2 configuration<a class="headerlink" href="#ros-2-configuration" title="Link to this heading"></a></h2>
+<section id="create-workspace">
+<h3>Create workspace<a class="headerlink" href="#create-workspace" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Create a workspace in the home folder and call it <code class="docutils literal notranslate"><span class="pre">uiabot_ws</span></code>.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/home/jetson
+mkdir<span class="w"> </span>-p<span class="w"> </span>uiabot_ws/src
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">jetson</span></code> directory should now look like this.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>jetson
+├── Desktop
+├── Documents
+├── Downloads
+├── Pictures
+└── uiabot_ws &lt;-- this is our workspace
+    └── src   &lt;-- all our ROS 2 packages goes here
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="install-developed-software">
+<h3>Install developed software<a class="headerlink" href="#install-developed-software" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Enter the workspace <code class="docutils literal notranslate"><span class="pre">src</span></code> directory.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/home/jetson/uiabot_ws/src
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Download the following packages.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bno055_i2c_ros2</span></code> (<a class="reference external" href="https://github.com/DrDanielh/bno055-i2c-ros2">src</a>)</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DrDanielh/bno055-i2c-ros2.git
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">odrive_ros2</span></code> (<a class="reference external" href="https://github.com/DrDanielh/odrive-ros2.git">src</a>)</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DrDanielh/odrive-ros2.git
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">odrive_interfaces</span></code> (<a class="reference external" href="https://github.com/DrDanielh/odrive-interfaces">src</a>)</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DrDanielh/odrive-interfaces.git
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uiabot</span></code> (<a class="reference external" href="https://github.com/DrDanielh/uiabot-ros2">src</a>)</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DrDanielh/uiabot-ros2.git
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">src</span></code> directory should now look like this.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>src
+├── bno055-i2c-ros2
+├── odrive-interfaces
+├── odrive-ros2
+└── uiabot-ros2
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="build-the-workspace">
+<h3>Build the workspace<a class="headerlink" href="#build-the-workspace" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Return to the workspace root.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/home/jetson/uiabot_ws
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Source the ROS 2 installation.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Build workspace.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+</section>
+<section id="configuring-odrive">
+<h2>Configuring ODrive<a class="headerlink" href="#configuring-odrive" title="Link to this heading"></a></h2>
+<section id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Launch odrivetool</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrivetool
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Current limit</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.axis0.motor.config.current_lim<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+odrv0.axis1.motor.config.current_lim<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Velocity limit</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.axis0.controller.config.vel_limit<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span>
+odrv0.axis1.controller.config.vel_limit<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<ol class="arabic" start="3">
+<li><p>Enable brake resistor</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.config.enable_brake_resistor<span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Brake restance value</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.config.brake_resistance<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.05
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Pole pairs</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.axis0.motor.config.pole_pairs<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span>
+odrv0.axis1.motor.config.pole_pairs<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Torque constant</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.axis0.motor.config.torque_constant<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span>.27/270
+odrv0.axis1.motor.config.torque_constant<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span>.27/270
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<ol class="arabic" start="6">
+<li><p>Calibrate motors</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.axis0.requested_state<span class="w"> </span><span class="o">=</span><span class="w"> </span>AXIS_STATE_FULL_CALIBRATION_SEQUENCE
+odrv0.axis1.requested_state<span class="w"> </span><span class="o">=</span><span class="w"> </span>AXIS_STATE_FULL_CALIBRATION_SEQUENCE
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Velocity control</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.axis0.controller.config.control_mode<span class="w"> </span><span class="o">=</span><span class="w"> </span>CONTROL_MODE_VELOCITY_CONTROL
+odrv0.axis1.controller.config.control_mode<span class="w"> </span><span class="o">=</span><span class="w"> </span>CONTROL_MODE_VELOCITY_CONTROL
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Save configuration</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.save_configuration<span class="o">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="testing-and-troubleshooting">
+<h3>Testing and Troubleshooting<a class="headerlink" href="#testing-and-troubleshooting" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Request closed-loop control</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.axis0.requested_state<span class="w"> </span><span class="o">=</span><span class="w"> </span>AXIS_STATE_CLOSED_LOOP_CONTROL
+odrv0.axis1.requested_state<span class="w"> </span><span class="o">=</span><span class="w"> </span>AXIS_STATE_CLOSED_LOOP_CONTROL
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.axis0.controller.input_vel<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+odrv0.axis1.controller.input_vel<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Dump errors</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dump_errors<span class="o">(</span>odrv0<span class="o">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p>3.Clear errors</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>odrv0.clear_errors<span class="o">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Overview.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="motion_control.html" class="btn btn-neutral float-right" title="Motion Control" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, University of Agder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+/* Set the main content to use the full width of the screen */
+.body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Make sure the main content container takes up all available space */
+.main-container {
+    width: 100%;
+}
+
+/* Adjust sidebar width (optional) */
+.rst-content {
+    max-width: none;
+}
+
+.math {
+    text-align: left;
+}
+.eqno {
+    float: right;
+}
