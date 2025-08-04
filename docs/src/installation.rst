@@ -282,8 +282,8 @@ Configuration
 
     .. code-block:: bash
 
-        odrv0.axis0.controller.config.vel_limit = 5
-        odrv0.axis1.controller.config.vel_limit = 5
+        odrv0.axis0.controller.config.vel_limit = 20
+        odrv0.axis1.controller.config.vel_limit = 20
 
 3. Enable brake resistor
 
